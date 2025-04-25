@@ -1,26 +1,16 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerScript : MonoBehaviour
-{
-    [Header("Attack")]
-    [SerializeField] private float attackRange;
-    [SerializeField] private int attackDamage;
+{   
+    [HideInInspector] public Queue<GameObject> enemies = new Queue<GameObject>();
+    [HideInInspector] public GameObject target;
 
-    [Header("Hit")]
-    [SerializeField] private int playerHp;
-    
-    
-    private CircleCollider2D playerCollider;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        playerCollider = GetComponent<CircleCollider2D>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(enemies != null && enemies.Count > 0)
+        {
+            target = enemies.Peek();
+        }
     }
 }
