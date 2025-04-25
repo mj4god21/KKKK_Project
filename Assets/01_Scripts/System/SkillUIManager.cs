@@ -16,11 +16,6 @@ public class SkillUIManager : MonoBehaviour
         skillPanel.SetActive(false);
     }
 
-    public void RandomSkill()
-    {
-
-    }
-
     public void ShowSkillChoices()
     {
         skillPanel.SetActive(true);
