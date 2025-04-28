@@ -11,11 +11,13 @@ GameObject:
   - component: {fileID: 3066437850508425144}
   - component: {fileID: 2418123472307464310}
   - component: {fileID: 2763436443062985097}
+  - component: {fileID: 6397546194248803206}
+  - component: {fileID: 3672934001755346505}
   - component: {fileID: 7694625877740511296}
   - component: {fileID: 2406166983586115219}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,12 +104,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe8f500a9df76c4e8ce7f379ecac39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackForce: 2
   moveSpeed: 1
   attackRange: 5
   canFollow: 0
   canAttack: 0
   isDead: 0
   key: 
+--- !u!114 &6397546194248803206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160960536640172872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e867f64f1a48324199040324bdb3ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+--- !u!114 &3672934001755346505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160960536640172872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11a57581866fd640ac829bb9b336d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3
+  objectType: 1
 --- !u!58 &7694625877740511296
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,7 +168,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
