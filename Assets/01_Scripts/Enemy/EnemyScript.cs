@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float knockbackForce;
-
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float attackRange;
+    [Header("SO")]
+    public EnemyData enemyData;
 
     private Vector3 targetPos = new Vector3(0, 0, 0);
     private Rigidbody2D rigid;
@@ -37,7 +35,7 @@ public class EnemyScript : MonoBehaviour
             if(canFollow)
             {
                 Vector2 dir = (targetPos - transform.position).normalized;
-                rigid.linearVelocity = dir * moveSpeed;
+                rigid.linearVelocity = dir * enemyData.moveSpeed;
             }
 
             yield return new WaitForSeconds(0);
@@ -57,7 +55,7 @@ public class EnemyScript : MonoBehaviour
     {
         dir = dir.normalized;
         canFollow = false;
-        rigid.AddForce(dir * knockbackForce, ForceMode2D.Impulse);
+        rigid.AddForce(dir * enemyData.knockbackForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.25f);
         canFollow = true;
     }

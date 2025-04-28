@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7694625877740511296}
   - component: {fileID: 2406166983586115219}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: DefaultEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,9 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe8f500a9df76c4e8ce7f379ecac39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 2
   moveSpeed: 1
   attackRange: 5
+  knockbackForce: 2
+  exp: 0
+  enemyData: {fileID: 11400000, guid: ebba3b8893b3b4a4f91a2d4961af08c9, type: 2}
   canFollow: 0
   canAttack: 0
   isDead: 0
