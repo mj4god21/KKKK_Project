@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class EnemySpawnSystem : MonoBehaviour
 {
@@ -10,14 +11,13 @@ public class EnemySpawnSystem : MonoBehaviour
     //public Vector2[] spawnPos;
 
     private List<Vector2> spawnPositions = new List<Vector2>();
-    private PlayerScript playerScript;
     private float timer = 0f;
     private int spawnedEnemies = 0;
     private int nowWave = 0;
+    private bool isGameOver;
 
     private void Awake()
     {
-        playerScript = FindObjectOfType<PlayerScript>().GetComponent<PlayerScript>();
         GenerateSpawnPositions();
     }
 
@@ -33,7 +33,6 @@ public class EnemySpawnSystem : MonoBehaviour
             timer = 0f;
             Vector2 spawnPos = GetRandomSpawnPosition();
             GameObject enemy = PoolManager.Instance.SpawnFromPool("Enemy", spawnPos, Quaternion.identity);
-            playerScript.enemies.Enqueue(enemy);
             if(enemy != null)
             {
                 spawnedEnemies++;
@@ -75,5 +74,20 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         if (spawnPositions.Count == 0) GenerateSpawnPositions();
         return spawnPositions[Random.Range(0, spawnPositions.Count)];
+    }
+
+    IEnumerator SummonEnemyRoutine()
+    {
+        while(!isGameOver)
+        {
+            Vector2 spawnPos = GetRandomSpawnPosition();
+            GameObject enemy = PoolManager.Instance.SpawnFromPool("Enemy", spawnPos, Quaternion.identity);
+            if (enemy != null)
+            {
+                spawnedEnemies++;
+            }
+            yield return new WaitForSeconds(spawnTime);
+        }
+        yield return null;
     }
 }

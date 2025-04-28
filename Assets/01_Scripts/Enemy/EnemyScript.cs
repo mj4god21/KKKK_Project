@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    public float knockbackForce;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float attackRange;
 
-    private Transform targetPos;
+    private Vector3 targetPos = new Vector3(0, 0, 0);
     private Rigidbody2D rigid;
     private Damage damage;
 
@@ -21,7 +23,6 @@ public class EnemyScript : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         damage = GetComponent<Damage>();
         canFollow = true;
-        targetPos = FindObjectOfType<PlayerScript>().transform;
     }
 
     private void Start()
@@ -35,22 +36,41 @@ public class EnemyScript : MonoBehaviour
         {
             if(canFollow)
             {
-                Vector2 dir = (targetPos.position - transform.position).normalized;
+                Vector2 dir = (targetPos - transform.position).normalized;
                 rigid.linearVelocity = dir * moveSpeed;
             }
 
             yield return new WaitForSeconds(0);
         }
         rigid.linearVelocity = Vector2.zero;
-        
+    }
+
+    public void ApplyKnockback(Vector2 dir)
+    {
+        if(rigid != null)
+        {
+            StartCoroutine(KnockbackRoutine(dir));
+        }
+    }
+
+    IEnumerator KnockbackRoutine(Vector2 dir)
+    {
+        dir = dir.normalized;
+        canFollow = false;
+        rigid.AddForce(dir * knockbackForce, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.25f);
+        canFollow = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision");
         if(collision.gameObject.CompareTag("Player"))
         {
+            HP playerHP = collision.gameObject.GetComponent<HP>();
             Debug.Log("Enemy's Attack!");
-            damage.Enemy_TakeDamage(collision.gameObject.GetComponent<PlayerHP>());
+            damage.Enemy_TakeDamage(playerHP, damage.damage);
+            playerHP.CastDead();
             PoolManager.Instance.ReturnToPool(gameObject, "Enemy");
         }
     }

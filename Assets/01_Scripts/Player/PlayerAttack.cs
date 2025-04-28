@@ -33,6 +33,12 @@ public class PlayerAttack : MonoBehaviour
 
     public void FireOn()
     {
+        if (player.target == null)
+        {
+            Debug.LogWarning("타겟이 없습니다! 발사를 중단합니다.");
+            return;
+        }
+
         canFire = false;
         GameObject bullet = PoolManager.Instance.SpawnFromPool("Bullet", transform.position, Quaternion.identity);
         bullet.GetComponent<BulletScript>().Fire(player.target.transform.position);
