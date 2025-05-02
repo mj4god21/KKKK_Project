@@ -5,9 +5,10 @@ using System.Collections;
 public class EnemySpawnSystem : MonoBehaviour
 {
     public float spawnTime = 2f;
-    public int maxEnemyCount = 10;
+    public int[] maxEnemyCount = { };
     public int spawnPointCount = 20;
     public float spawnOffset = 1f;
+    public GameObject enemyPrefab;
     //public Vector2[] spawnPos;
 
     private List<Vector2> spawnPositions = new List<Vector2>();
@@ -21,35 +22,21 @@ public class EnemySpawnSystem : MonoBehaviour
         GenerateSpawnPositions();
     }
 
-
-    private void Update()
+    private void Start()
     {
-        if (spawnedEnemies >= maxEnemyCount) return;
-
-        timer += Time.deltaTime;
-
-        if(timer >= spawnTime)
-        {
-            timer = 0f;
-            Vector2 spawnPos = GetRandomSpawnPosition();
-            GameObject enemy = PoolManager.Instance.SpawnFromPool("Enemy", spawnPos, Quaternion.identity);
-            if(enemy != null)
-            {
-                spawnedEnemies++;
-            }
-        }
+        StartCoroutine(SummonEnemyRoutine());
     }
 
     private void GenerateSpawnPositions()
     {
         spawnPositions.Clear();
 
-        for(int i = 0; i < spawnPointCount; i++)
+        for (int i = 0; i < spawnPointCount; i++)
         {
             int edge = Random.Range(0, 4);
             Vector3 viewportPos = Vector3.zero;
 
-            switch(edge)
+            switch (edge)
             {
                 case 0: // top
                     viewportPos = new Vector3(Random.Range(0f, 1f), 1f + spawnOffset, 0f);
@@ -78,15 +65,22 @@ public class EnemySpawnSystem : MonoBehaviour
 
     IEnumerator SummonEnemyRoutine()
     {
-        while(!isGameOver)
+        while (!isGameOver)
         {
-            Vector2 spawnPos = GetRandomSpawnPosition();
-            GameObject enemy = PoolManager.Instance.SpawnFromPool("Enemy", spawnPos, Quaternion.identity);
-            if (enemy != null)
+            if (spawnedEnemies < maxEnemyCount[nowWave])
             {
-                spawnedEnemies++;
+                Vector2 spawnPos = GetRandomSpawnPosition();
+                GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+                if (enemy != null)
+                {
+                    spawnedEnemies++;
+                }
+                yield return new WaitForSeconds(spawnTime);
             }
-            yield return new WaitForSeconds(spawnTime);
+            else
+            {
+                yield return null;
+            }
         }
         yield return null;
     }

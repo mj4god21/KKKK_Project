@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour
     private Vector3 targetPos = new Vector3(0, 0, 0);
     private Rigidbody2D rigid;
     private Damage damage;
+    private HP hp;
 
     [HideInInspector] public bool canFollow;
     [HideInInspector] public bool canAttack;
@@ -20,11 +21,14 @@ public class EnemyScript : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         damage = GetComponent<Damage>();
+        hp = GetComponent<HP>();
         canFollow = true;
     }
 
     private void Start()
     {
+        damage.damage = enemyData.damage;
+        hp.hp = enemyData.hp;
         StartCoroutine(MoveRoutine());
     }
 
@@ -69,7 +73,7 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("Enemy's Attack!");
             damage.Enemy_TakeDamage(playerHP, damage.damage);
             playerHP.CastDead();
-            PoolManager.Instance.ReturnToPool(gameObject, "Enemy");
+            Destroy(gameObject);
         }
     }
 }
