@@ -12,10 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e93b934ecd8174496ef125be6248dd, type: 3}
   m_Name: DefaultEnemyData
   m_EditorClassIdentifier: 
-  hp: 3
-  damage: 2
-  moveSpeed: 1
-  attackRange: 5
-  knockbackForce: 2
-  expDropAmount: 5
-  expPrefab: {fileID: 8219827729629590562, guid: 64ec3d41ffe04ef4492c9f5aad218968, type: 3}
