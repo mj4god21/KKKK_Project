@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
-
+  - Transform
+  - Undefined
+  - EXP
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Enemy
-  - EXP
+  - 
+  - 
   - 
   - 
   - 
