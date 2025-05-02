@@ -34,6 +34,7 @@ public class SkillUIManager : MonoBehaviour
 
     public void ShowSkillChoices()
     {
+        Debug.Log("ShowSkillChoides");
         // 이전 버튼 전부 제거
         foreach (GameObject btn in currentButtons)
         {
@@ -74,7 +75,7 @@ public class SkillUIManager : MonoBehaviour
 
     public void SelectSkill(int skillIndex)
     {
-        Debug.Log($"스킬 {skillIndex} 선택됨");
+        Debug.Log($"스킬 {skillIndex + 1} 선택됨");
 
         foreach (GameObject button in currentButtons)
         {

@@ -29,6 +29,7 @@ public class EnemyScript : MonoBehaviour
     {
         damage.damage = enemyData.damage;
         hp.hp = enemyData.hp;
+        hp.maxHp = enemyData.hp;
         StartCoroutine(MoveRoutine());
     }
 
@@ -71,7 +72,7 @@ public class EnemyScript : MonoBehaviour
         {
             HP playerHP = collision.gameObject.GetComponent<HP>();
             Debug.Log("Enemy's Attack!");
-            damage.Enemy_TakeDamage(playerHP, damage.damage);
+            damage.Enemy_TakeDamage(playerHP, hp.maxHp - hp.hp);
             playerHP.CastDead();
             Destroy(gameObject);
         }
