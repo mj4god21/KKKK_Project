@@ -1,33 +1,75 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    private Vector2 targetPos;
+    [Header("SO")]
+    public EnemyData enemyData;
+
+    private Vector3 targetPos = new Vector3(0, 0, 0);
     private Rigidbody2D rigid;
+    private Damage damage;
 
     [HideInInspector] public bool canFollow;
     [HideInInspector] public bool canAttack;
+    [HideInInspector] public bool isDead;
+    [HideInInspector] public string key = "Enemy";
 
 
-    private void Awake()
+    private void OnEnable()
     {
-        targetPos = new Vector2(0, 0);
         rigid = GetComponent<Rigidbody2D>();
+        damage = GetComponent<Damage>();
+        canFollow = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        StartCoroutine(MoveRoutine());
     }
 
-    private void Move()
+    IEnumerator MoveRoutine()
     {
-        if (!canFollow) return;
-
-        while(!canAttack)
+        while(!isDead && !canAttack)
         {
+            if(canFollow)
+            {
+                Vector2 dir = (targetPos - transform.position).normalized;
+                rigid.linearVelocity = dir * enemyData.moveSpeed;
+            }
 
+            yield return new WaitForSeconds(0);
+        }
+        rigid.linearVelocity = Vector2.zero;
+    }
+
+    public void ApplyKnockback(Vector2 dir)
+    {
+        if(rigid != null)
+        {
+            StartCoroutine(KnockbackRoutine(dir));
+        }
+    }
+
+    IEnumerator KnockbackRoutine(Vector2 dir)
+    {
+        dir = dir.normalized;
+        canFollow = false;
+        rigid.AddForce(dir * enemyData.knockbackForce, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.25f);
+        canFollow = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision");
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            HP playerHP = collision.gameObject.GetComponent<HP>();
+            Debug.Log("Enemy's Attack!");
+            damage.Enemy_TakeDamage(playerHP, damage.damage);
+            playerHP.CastDead();
+            PoolManager.Instance.ReturnToPool(gameObject, "Enemy");
         }
     }
 }
