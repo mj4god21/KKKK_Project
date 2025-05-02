@@ -1,34 +1,19 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
-    public static GameManager Instance;
-
     public GameState currentState = GameState.Playing;
     public SkillUIManager skillUIManager;
     public float Exp = 0;
-    private float maxExp = 5;
+    public float[] maxExp = { };
+    public int nowLevel;
 
-    private void Awake()
+    public void GetExp(int expAmount)
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
+        Exp += expAmount;
+        if(Exp >= maxExp[nowLevel])
         {
-            GetExp();
-        }
-    }
-
-    private void GetExp()
-    {
-        Exp++;
-        if(Exp >= maxExp)
-        {
-            maxExp = maxExp * 1.5f;
+            nowLevel++;
             LevelUp();
         }
     }
