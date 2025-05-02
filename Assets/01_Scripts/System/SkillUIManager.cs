@@ -1,6 +1,4 @@
-using DG.Tweening.Core.Easing;
-using NUnit.Framework;
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,18 +6,15 @@ public class SkillUIManager : MonoBehaviour
 {
     public GameObject skillPanel;
     public GameObject[] skillList;
-    public Transform[] btnTrmList = new Transform[2];
+    public Transform[] btnTrmList = new Transform[3]; // â­ ë°˜ë“œì‹œ 3ê°œë¡œ ì„¤ì •
+
     private List<int> usedIndices = new List<int>();
-    private bool chkSelect = false;
+    private List<GameObject> currentButtons = new List<GameObject>();
 
     private void Awake()
     {
+        Debug.Log($"Awake on: {gameObject.name}, skillPanel is {(skillPanel == null ? "NULL" : "SET")}");
         FoundTrm();
-    }
-
-    private void Start()
-    {
-        chkSelect = false;
     }
 
     private void FoundTrm()
@@ -28,10 +23,9 @@ public class SkillUIManager : MonoBehaviour
 
         if (foundButtons.Length != btnTrmList.Length)
         {
-            Debug.LogWarning("Ã£Àº ¹öÆ° ¼ö¿Í btnTrmList Å©±â°¡ ´Ù¸¨´Ï´Ù. ¹è¿­ Å©±â¸¦ È®ÀÎÇÏ¼¼¿ä.");
+            Debug.LogWarning("ì°¾ì€ ë²„íŠ¼ ìˆ˜ì™€ btnTrmList í¬ê¸°ê°€ ë‹¤ë¦…ë‹ˆë‹¤.");
         }
 
-        // Á¤·ÄÀÌ ÇÊ¿äÇÏ¸é ¿©±â¼­ Á¤·Ä
         for (int i = 0; i < btnTrmList.Length && i < foundButtons.Length; i++)
         {
             btnTrmList[i] = foundButtons[i].transform;
@@ -40,27 +34,34 @@ public class SkillUIManager : MonoBehaviour
 
     public void ShowSkillChoices()
     {
-        //skillPanel.SetActive(true);
+        // ì´ì „ ë²„íŠ¼ ì „ë¶€ ì œê±°
+        foreach (GameObject btn in currentButtons)
+        {
+            Destroy(btn);
+        }
+        currentButtons.Clear();
         usedIndices.Clear();
 
         for (int i = 0; i < 3; i++)
         {
             int randIndex = GetUniqueRandomIndex();
-
-            // Áßº¹ ¾øÀÌ ¼±ÅÃµÈ ÀÎµ¦½º ÀúÀå
             usedIndices.Add(randIndex);
 
-            // ¹öÆ° ÀÎ½ºÅÏ½º »ı¼º
-            GameObject newSkillButton = Instantiate(skillList[randIndex], btnTrmList[i]);
-
-            if(chkSelect == true)
+            if (i >= btnTrmList.Length)
             {
-                Destroy(newSkillButton);
+                Debug.LogError("btnTrmListì— ìœ„ì¹˜ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤. btnTrmListì˜ í¬ê¸°ë¥¼ 3ìœ¼ë¡œ ë§ì¶°ì£¼ì„¸ìš”.");
+                continue;
             }
-            // ÇÊ¿ä ½Ã ¹öÆ° ÃÊ±âÈ­ ÄÚµå Ãß°¡ °¡´É
+
+            GameObject newSkillButton = Instantiate(skillList[randIndex], btnTrmList[i]);
+            currentButtons.Add(newSkillButton);
+
+            Button buttonComponent = newSkillButton.GetComponent<Button>();
+            int capturedIndex = randIndex;
+            buttonComponent.onClick.AddListener(() => SelectSkill(capturedIndex));
         }
-        chkSelect = false;
     }
+
     private int GetUniqueRandomIndex()
     {
         int rand;
@@ -73,12 +74,15 @@ public class SkillUIManager : MonoBehaviour
 
     public void SelectSkill(int skillIndex)
     {
-        Debug.Log($"½ºÅ³, {skillIndex} (ÀÌ)°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+        Debug.Log($"ìŠ¤í‚¬ {skillIndex} ì„ íƒë¨");
 
-        // ¼±ÅÃÇÑ ½ºÅ³ Àû¿ë ·ÎÁ÷ µé¾î°¥ ÀÚ¸®
-        chkSelect = true;
-        ShowSkillChoices();
-        
+        foreach (GameObject button in currentButtons)
+        {
+            Destroy(button);
+        }
+        currentButtons.Clear();
         GameManager.Instance.ResumeGame();
     }
 }
+
+
