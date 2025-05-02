@@ -597,6 +597,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1584335440}
     - target: {fileID: 3684423139340957975, guid: c0e17197203cfe44197bc88aab2780aa, type: 3}
+      propertyPath: btnTrmList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684423139340957975, guid: c0e17197203cfe44197bc88aab2780aa, type: 3}
       propertyPath: 'btnTrmList.Array.data[0]'
       value: 
       objectReference: {fileID: 1316861416}
@@ -606,6 +610,18 @@ PrefabInstance:
       objectReference: {fileID: 609395771}
     - target: {fileID: 3684423139340957975, guid: c0e17197203cfe44197bc88aab2780aa, type: 3}
       propertyPath: 'btnTrmList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 809701452}
+    - target: {fileID: 3684423139340957975, guid: c0e17197203cfe44197bc88aab2780aa, type: 3}
+      propertyPath: 'btnTrmList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1316861416}
+    - target: {fileID: 3684423139340957975, guid: c0e17197203cfe44197bc88aab2780aa, type: 3}
+      propertyPath: 'btnTrmList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 609395771}
+    - target: {fileID: 3684423139340957975, guid: c0e17197203cfe44197bc88aab2780aa, type: 3}
+      propertyPath: 'btnTrmList.Array.data[5]'
       value: 
       objectReference: {fileID: 809701452}
     - target: {fileID: 6487206288570471657, guid: c0e17197203cfe44197bc88aab2780aa, type: 3}
