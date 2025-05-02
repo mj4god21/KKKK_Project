@@ -9,6 +9,7 @@ public class HP : MonoBehaviour
     }
 
     public float hp;
+    public float maxHp;
 
     public Type objectType;
 

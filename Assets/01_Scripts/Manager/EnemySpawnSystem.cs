@@ -9,12 +9,10 @@ public class EnemySpawnSystem : MonoBehaviour
     public int spawnPointCount = 20;
     public float spawnOffset = 1f;
     public GameObject enemyPrefab;
-    //public Vector2[] spawnPos;
 
     private List<Vector2> spawnPositions = new List<Vector2>();
     private float timer = 0f;
     private int spawnedEnemies = 0;
-    private int nowWave = 0;
     private bool isGameOver;
 
     private void Awake()
@@ -67,7 +65,7 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         while (!isGameOver)
         {
-            if (spawnedEnemies < maxEnemyCount[nowWave])
+            if (spawnedEnemies < maxEnemyCount[WaveSystem.Instance.nowWave])
             {
                 Vector2 spawnPos = GetRandomSpawnPosition();
                 GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);

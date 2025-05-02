@@ -10,9 +10,6 @@ public class EXPScript : MonoBehaviour
     private Transform player;
     private ParticleSystem particle;
 
-    public GameObject GameObject => gameObject;
-
-
     private void Awake()
     {
         player = GameObject.FindWithTag("Player")?.transform;
