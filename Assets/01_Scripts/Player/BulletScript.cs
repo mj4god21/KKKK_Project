@@ -37,6 +37,7 @@ public class BulletScript : MonoBehaviour
 
             damage.Player_TakeDamage(enemyHP, damage.damage);
             enemyHP.CastDead();
+            if (enemyHP.hp <= 0) enemyScript.EnemyDeadEvent();
             Destroy(gameObject);
         }
     }

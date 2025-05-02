@@ -76,4 +76,10 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void EnemyDeadEvent()
+    {
+        EXPScript exp = Instantiate(enemyData.expPrefab, transform.position, Quaternion.identity).GetComponent<EXPScript>();
+        exp.DropEXP(enemyData.expDropAmount);
+    }
 }

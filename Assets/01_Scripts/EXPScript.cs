@@ -10,19 +10,17 @@ public class EXPScript : MonoBehaviour
     private Transform player;
     private ParticleSystem particle;
 
-    [HideInInspector] public string key = "EXP";
-
     public GameObject GameObject => gameObject;
 
 
-    private void OnEnable()
+    private void Awake()
     {
-        if (player == null)
-            player = GameObject.FindWithTag("Player")?.transform;
+        player = GameObject.FindWithTag("Player")?.transform;
+        particle = GetComponent<ParticleSystem>();
+    }
 
-        if (particle == null)
-            particle = GetComponent<ParticleSystem>();
-
+    public void DropEXP(int expAmount)
+    {
         particle.Play();
 
         if (player == null)
@@ -35,8 +33,8 @@ public class EXPScript : MonoBehaviour
             .SetEase(Ease.InOutQuart)
             .OnComplete(() =>
             {
+                GameManager.Instance.GetExp(expAmount);
                 Destroy(gameObject);
             });
     }
-
 }
