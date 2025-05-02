@@ -5,6 +5,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public float fireDuration;
     public bool canFire = true;
+    public GameObject defaultBulletPrefab;
 
     private PlayerScript player;
 
@@ -20,9 +21,9 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator AttackRoutine()
     {
-        while(true)
+        while (true)
         {
-            if(canFire == false)
+            if (canFire == false)
             {
                 yield return new WaitForSeconds(fireDuration);
                 canFire = true;
@@ -40,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         canFire = false;
-        GameObject bullet = PoolManager.Instance.SpawnFromPool("Bullet", transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(defaultBulletPrefab, transform.position, Quaternion.identity);
         bullet.GetComponent<BulletScript>().Fire(player.target.transform.position);
     }
 }

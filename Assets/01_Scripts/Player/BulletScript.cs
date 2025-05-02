@@ -37,7 +37,7 @@ public class BulletScript : MonoBehaviour
 
             damage.Player_TakeDamage(enemyHP, damage.damage);
             enemyHP.CastDead();
-            PoolManager.Instance.ReturnToPool(gameObject, "Bullet");
+            Destroy(gameObject);
         }
     }
 }

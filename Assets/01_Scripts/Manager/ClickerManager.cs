@@ -16,11 +16,39 @@ public class ClickerManager : MonoSingleton<ClickerManager>
 
         // Clicker 객체를 초기화하여 이벤트를 연결
         clicker = new Clicker();
-        clicker.MouseL.Click.performed += ctx => OnClick(); // 마우스 클릭 처리
+        if (clicker != null)
+        {
+            clicker.MouseL.Click.performed += ctx => OnClick(); // 마우스 클릭 처리
+        }
+        else
+        {
+            Debug.LogError("Clicker object is null!");
+        }
     }
 
-    private void OnEnable() => clicker.Enable();  // 클릭 액션을 활성화
-    private void OnDisable() => clicker.Disable(); // 클릭 액션을 비활성화
+    private void OnEnable()
+    {
+        if (clicker != null)
+        {
+            clicker.Enable();  // 클릭 액션을 활성화
+        }
+        else
+        {
+            Debug.LogError("Clicker object is null! Cannot enable.");
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (clicker != null)
+        {
+            clicker.Disable(); // 클릭 액션을 비활성화
+        }
+        else
+        {
+            Debug.LogError("Clicker object is null! Cannot disable.");
+        }
+    }
 
     private void OnClick()
     {
@@ -31,12 +59,15 @@ public class ClickerManager : MonoSingleton<ClickerManager>
         if (Vector2.Distance(mouseWorldPos, playerAttack.transform.position) <= attackRangeRadius)
         {
             // 공격 범위 내에 있을 경우, 공격 실행
-            if (playerAttack.canFire)
+            if (playerAttack != null && playerAttack.canFire)
             {
                 playerAttack.FireOn();
                 ClickCount++;
             }
-            else return;
+            else
+            {
+                Debug.LogWarning("PlayerAttack is null or cannot fire.");
+            }
         }
     }
 }

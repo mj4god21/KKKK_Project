@@ -26,7 +26,7 @@ public class HP : MonoBehaviour
     private void EnemyDead()
     {
         Debug.Log("EnemyDead");
-        PoolManager.Instance.ReturnToPool(gameObject, "Enemy");
+        Destroy(gameObject);
     }
 
     private void PlayerDead()
