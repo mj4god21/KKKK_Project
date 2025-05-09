@@ -6,9 +6,6 @@ public class EnemyData : ScriptableObject
     [Tooltip("에너미 체력")]
     public int hp;          // HP
 
-    [Tooltip("에너미 공격력")]
-    public int damage;          // 공격력
-
     [Tooltip("에너미 이동 속도")]
     public int moveSpeed;          // 이동 속도
 
