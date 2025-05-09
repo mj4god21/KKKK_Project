@@ -4,6 +4,7 @@ public class SkillSystem : MonoBehaviour
 {
     private BulletScript bulletScript;
     public int upSpeed = 1;
+    public float upDamage = 1f;
     public SkillList SkillState;
 
     private void Start()
