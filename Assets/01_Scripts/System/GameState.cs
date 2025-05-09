@@ -5,3 +5,10 @@ public enum GameState
     LevelUp,
     GameOver
 }
+
+public enum SkillState
+{
+    none,
+    DamageUp,
+    AutoAttack
+}
