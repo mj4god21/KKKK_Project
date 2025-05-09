@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
 {
@@ -9,8 +10,8 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
     public float spawnTime = 2f;
     public int spawnPointCount = 20;
     public float spawnOffset = 1f;
-    public GameObject enemyPrefab;
 
+    private GameObject enemyPrefab;
     private List<Vector2> spawnPositions = new List<Vector2>();
     private int spawnedEnemies = 0;
     private bool isGameOver;
@@ -66,10 +67,18 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
         while (!isGameOver)
         {
             if (spawnedEnemies < WaveSystem.Instance.maxEnemyCount &&
-                aliveEnemies < WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowWave].maxEnemyCount)
+                aliveEnemies < WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowChapter].maxEnemyCount)
             {
+
+                int randomEnemyIndex = Random.Range(0, WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowChapter].enemyPrefab.Length);
+
+                enemyPrefab = WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowChapter].enemyPrefab[randomEnemyIndex];
+                
+                
                 Vector2 spawnPos = GetRandomSpawnPosition();
                 GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+                
+                
                 if (enemy != null)
                 {
                     aliveEnemies++;
