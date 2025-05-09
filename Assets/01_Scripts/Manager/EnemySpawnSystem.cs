@@ -2,8 +2,10 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-public class EnemySpawnSystem : MonoBehaviour
+public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
 {
+    [HideInInspector] public int aliveEnemies = 0;
+
     public float spawnTime = 2f;
     public int spawnPointCount = 20;
     public float spawnOffset = 1f;
@@ -63,12 +65,14 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         while (!isGameOver)
         {
-            if (spawnedEnemies < WaveSystem.Instance.maxEnemyCount)
+            if (spawnedEnemies < WaveSystem.Instance.maxEnemyCount &&
+                aliveEnemies < WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowWave].maxEnemyCount)
             {
                 Vector2 spawnPos = GetRandomSpawnPosition();
                 GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
                 if (enemy != null)
                 {
+                    aliveEnemies++;
                     spawnedEnemies++;
                 }
                 yield return new WaitForSeconds(spawnTime);

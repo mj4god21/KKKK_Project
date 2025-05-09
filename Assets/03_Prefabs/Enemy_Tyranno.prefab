@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  maxHp: 0
   objectType: 1
 --- !u!58 &7694625877740511296
 CircleCollider2D:

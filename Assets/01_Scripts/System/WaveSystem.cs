@@ -10,18 +10,14 @@ public class WaveSystem : MonoSingleton<WaveSystem>
     [HideInInspector] public float waveTime;
     [HideInInspector] public int maxEnemyCount; //최대 에너미 카운트
 
-    private float nowTime;
-    private PlayerScript player;
-
-    private void Awake()
+    private void Start()
     {
-        player = FindObjectOfType<PlayerScript>();
+        NextWave(0);
     }
 
     private void Update()
     {
-        nowTime += Time.deltaTime;
-        if(waveTime <= nowTime)
+        if(waveTime <= MainUIManager.Instance.nowTime)
         {
             nowWave++;
             NextWave(nowWave);
@@ -31,26 +27,31 @@ public class WaveSystem : MonoSingleton<WaveSystem>
     private void NextWave(int nowWave)
     {
         waveTime = chapterSO[nowWave].waveTime; // 다음 챕터의 웨이브 지속시간을 가져옴
+        MainUIManager.Instance.UpdateWave(nowWave);
 
         switch(chapterSO[nowWave].chapterIdx) // 다음 챕터의 인덱스에 따라서 최대 에너미 수를 조정하는 부분
         {
-            case 1:
+            case 0:
                 maxEnemyCount = (nowWave / 2) * 5;
+                break;
+
+            case 1:
+                maxEnemyCount = (nowWave / 3) * 10;
                 break;
 
             case 2:
                 maxEnemyCount = (nowWave / 3) * 10;
                 break;
-
             case 3:
-                maxEnemyCount = (nowWave / 3) * 10;
+                maxEnemyCount = (nowWave / 2) * 10;
                 break;
             case 4:
                 maxEnemyCount = (nowWave / 2) * 10;
                 break;
-            case 5:
-                maxEnemyCount = (nowWave / 2) * 10;
+            default:
+                Debug.LogWarning("Chapter Index was Overflow!!!");
                 break;
+
         }
     }
 }
