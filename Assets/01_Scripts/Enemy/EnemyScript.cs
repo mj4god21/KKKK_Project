@@ -27,9 +27,9 @@ public class EnemyScript : MonoBehaviour
 
     private void Start()
     {
-        damage.damage = enemyData.damage;
-        hp.hp = enemyData.hp;
-        hp.maxHp = enemyData.hp;
+        damage.damage = 
+        hp.hp = enemyData.hp + ((WaveSystem.Instance.nowWave/5) * 2);
+        hp.maxHp = hp.hp;
         StartCoroutine(MoveRoutine());
     }
 

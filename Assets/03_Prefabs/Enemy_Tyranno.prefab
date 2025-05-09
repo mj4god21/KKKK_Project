@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7694625877740511296}
   - component: {fileID: 2406166983586115219}
   m_Layer: 6
-  m_Name: DefaultEnemy
+  m_Name: Enemy_Tyranno
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
