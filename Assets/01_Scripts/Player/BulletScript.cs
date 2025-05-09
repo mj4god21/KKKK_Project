@@ -5,11 +5,10 @@ public class BulletScript : MonoBehaviour
     public float fireSpeed;
 
     [HideInInspector] public string key = "Bullet";
-
+    [HideInInspector] public Damage damage;
 
     private Rigidbody2D rigid;
     private CapsuleCollider2D collider;
-    private Damage damage;
 
     private void Awake()
     {
