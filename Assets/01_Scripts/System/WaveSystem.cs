@@ -7,18 +7,20 @@ public class WaveSystem : MonoSingleton<WaveSystem>
     public Chapter[] chapterSO;
 
     [HideInInspector] public int nowWave;
+    [HideInInspector] public int nowChapter;
     [HideInInspector] public float waveTime;
     [HideInInspector] public int maxEnemyCount; //최대 에너미 카운트
 
     private void Start()
     {
-        NextWave(0);
+        ResetChapter();
     }
 
     private void Update()
     {
         if(waveTime <= MainUIManager.Instance.nowTime)
         {
+            MainUIManager.Instance.nowTime = 0;
             nowWave++;
             NextWave(nowWave);
         }
@@ -26,10 +28,18 @@ public class WaveSystem : MonoSingleton<WaveSystem>
 
     private void NextWave(int nowWave)
     {
-        waveTime = chapterSO[nowWave].waveTime; // 다음 챕터의 웨이브 지속시간을 가져옴
-        MainUIManager.Instance.UpdateWave(nowWave);
+        if (chapterSO[nowChapter].wave <= nowWave)
+        {
+            if(chapterSO.Length <= nowChapter + 1)
+            {
+                Debug.Log("모든 챕터가 끝남.");
+                return;
+            }
 
-        switch(chapterSO[nowWave].chapterIdx) // 다음 챕터의 인덱스에 따라서 최대 에너미 수를 조정하는 부분
+            NextChapter(++nowChapter);
+            return;
+        }
+        switch(chapterSO[nowChapter].chapterIdx) // 다음 챕터의 인덱스에 따라서 최대 에너미 수를 조정하는 부분
         {
             case 0:
                 maxEnemyCount = (nowWave / 2) * 5;
@@ -53,5 +63,30 @@ public class WaveSystem : MonoSingleton<WaveSystem>
                 break;
 
         }
+
+        Debug.Log(maxEnemyCount);
+        waveTime = chapterSO[0].waveTime; // 웨이브 지속시간 부분 (=> 전체가 똑같기 때문에 이대로 납둬도 됌)
+
+        MainUIManager.Instance.UpdateWave(nowWave);
+    }
+
+    private void NextChapter(int nowChapter)
+    {
+        ResetWave();
+
+
+        MainUIManager.Instance.UpdateChapter(nowChapter);
+        NextWave(0);
+    }
+
+    private void ResetWave()
+    {
+        nowWave = 0;
+    }
+
+    private void ResetChapter()
+    {
+        NextChapter(0);
+        nowChapter = 0;
     }
 }
