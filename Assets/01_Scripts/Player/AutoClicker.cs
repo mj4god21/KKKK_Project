@@ -35,6 +35,7 @@ public class AutoClicker : MonoBehaviour
     {
         while (true)
         {
+
             FireOn();
             
             yield return new WaitForSeconds(nowAttackSpeed);
@@ -50,7 +51,7 @@ public class AutoClicker : MonoBehaviour
         }
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position);
+        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, gameObject.transform);
     }
 
     private void ResetAutoClicker()

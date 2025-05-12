@@ -37,7 +37,8 @@ public class EnemyScript : MonoBehaviour
     {
         while(!isDead && !canAttack)
         {
-            if(canFollow)
+
+            if (canFollow)
             {
                 Vector2 dir = (targetPos - transform.position).normalized;
                 rigid.linearVelocity = dir * enemyData.moveSpeed;
@@ -50,11 +51,13 @@ public class EnemyScript : MonoBehaviour
 
     public void ApplyKnockback(Vector2 dir)
     {
-        if(rigid != null)
+        if (rigid != null)
         {
             StartCoroutine(KnockbackRoutine(dir));
         }
     }
+
+
 
     IEnumerator KnockbackRoutine(Vector2 dir)
     {

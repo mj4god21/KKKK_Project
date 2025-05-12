@@ -21,7 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void LevelUp()
     {
         currentState = GameState.LevelUp;
-        maxExp = 30 + (Exp - 1) * 50;
+        maxExp = 30 + (nowLevel - 1) * 50;
         Time.timeScale = 0f; // 게임 일시정지
         skillUIManager.ShowSkillChoices();
     }
