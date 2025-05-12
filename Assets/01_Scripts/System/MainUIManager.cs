@@ -10,10 +10,11 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     public TextMeshProUGUI waveText;
     public int nowTime;
 
+    private string chapterName;
+
     private void Start()
     {
         StartCoroutine(TimeRoutine());
-        UpdateWave(1);
     }
 
     private IEnumerator TimeRoutine()
@@ -35,9 +36,13 @@ public class MainUIManager : MonoSingleton<MainUIManager>
         timerText.text = $"{min:D2} : {sec:D2}";
     }
 
+    public void UpdateChapter(int chapter)
+    {
+        chapterName = WaveSystem.Instance.chapterSO[chapter].chapterName;
+    }
+
     public void UpdateWave(int wave)
     {
-        string chapterName = WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowWave].chapterName;
-        waveText.text = $"{WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowWave].chapterName} - Wave {wave}";
+        waveText.text = $"{chapterName} - Wave {wave}";
     }
 }
