@@ -8,6 +8,14 @@ public class GameManager : MonoSingleton<GameManager>
     public float maxExp;
     public int nowLevel;
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            MakerOnly();
+        }
+    }
+
     public void GetExp(int expAmount)
     {
         Exp += expAmount;
@@ -16,6 +24,11 @@ public class GameManager : MonoSingleton<GameManager>
             nowLevel++;
             LevelUp();
         }
+    }
+
+    private void MakerOnly()
+    {
+        LevelUp();
     }
 
     public void LevelUp()

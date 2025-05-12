@@ -10,5 +10,9 @@ public enum SkillState
 {
     none,
     DamageUp,
-    AutoAttack
+    HPUp,
+    AutoAttack,
+    KnockBackUp,
+    Penetration,
+    BulletSizeUp
 }
