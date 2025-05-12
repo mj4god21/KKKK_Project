@@ -46,6 +46,7 @@ public class WaveSystem : MonoSingleton<WaveSystem>
             case 0:
                 maxEnemyCount = Mathf.CeilToInt((waveF / 2) * 10);
                 EnemySpawnSystem.Instance.spawnTime = waveTime / maxEnemyCount;
+                Debug.Log("spawnTime: " + EnemySpawnSystem.Instance.spawnTime);
                 break;
 
             case 1:
