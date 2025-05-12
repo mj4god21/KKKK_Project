@@ -6,7 +6,7 @@ public class WaveSystem : MonoSingleton<WaveSystem>
     [Header("SO")]
     public Chapter[] chapterSO;
 
-    [HideInInspector] public int nowWave;
+    [HideInInspector] public int nowWave = 1;
     [HideInInspector] public int nowChapter;
     [HideInInspector] public float waveTime;
     [HideInInspector] public int maxEnemyCount; //최대 에너미 카운트
@@ -28,6 +28,8 @@ public class WaveSystem : MonoSingleton<WaveSystem>
 
     private void NextWave(int nowWave)
     {
+        float waveF = nowWave;
+
         if (chapterSO[nowChapter].wave <= nowWave)
         {
             if(chapterSO.Length <= nowChapter + 1)
@@ -42,7 +44,10 @@ public class WaveSystem : MonoSingleton<WaveSystem>
         switch(chapterSO[nowChapter].chapterIdx) // 다음 챕터의 인덱스에 따라서 최대 에너미 수를 조정하는 부분
         {
             case 0:
-                maxEnemyCount = (nowWave / 2) * 5;
+                maxEnemyCount = Mathf.CeilToInt((waveF / 2) * 10);
+                EnemySpawnSystem.Instance.spawnTime = waveTime / maxEnemyCount;
+                Debug.Log("spawnTime: " + EnemySpawnSystem.Instance.spawnTime);
+                Debug.Log("maxEnemyCount: " + maxEnemyCount);
                 break;
 
             case 1:
