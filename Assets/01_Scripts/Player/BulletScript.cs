@@ -4,7 +4,9 @@ public class BulletScript : MonoBehaviour
 {
     public float fireSpeed;
 
+    [HideInInspector] public string key = "Bullet";
     [HideInInspector] public Damage damage;
+    [HideInInspector] public Transform playerPos;
 
     private Rigidbody2D rigid;
     private CapsuleCollider2D collider;
@@ -16,9 +18,10 @@ public class BulletScript : MonoBehaviour
         damage = GetComponent<Damage>();
     }
 
-    public void Fire(Vector3 targetPos)
+    public void Fire(Vector3 targetPos, Transform attackTransform)
     {
-        Vector2 dir = targetPos - transform.position;
+        playerPos = attackTransform;
+        Vector2 dir = (targetPos - transform.position).normalized;
         rigid.linearVelocity = dir * fireSpeed;
     }
 
@@ -30,8 +33,11 @@ public class BulletScript : MonoBehaviour
             HP enemyHP = collision.gameObject.GetComponent<HP>();
             EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
 
-            Vector2 knockcbackDir = -(collision.transform.position - transform.position);
-            enemyScript.ApplyKnockback(knockcbackDir);
+            if(playerPos != null)
+            {
+                Vector2 knockcbackDir = (collision.transform.position - playerPos.position).normalized;
+                enemyScript.ApplyKnockback(knockcbackDir);
+            }
 
             damage.Player_TakeDamage(enemyHP, damage.damage);
             enemyHP.CastDead();

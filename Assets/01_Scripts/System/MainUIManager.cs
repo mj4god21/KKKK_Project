@@ -2,13 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using System;
+using DG.Tweening;
 
 public class MainUIManager : MonoSingleton<MainUIManager>
 {
+    [Header("UI")]
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI waveText;
+    public Image pausePanel;
+    public Image pauseSidePanel;
+    public Image settingPanel;
+
+    [Header("System")]
     public int nowTime;
+    public GameState currentState = GameState.Playing;
 
     private string chapterName;
 
@@ -44,5 +51,35 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     public void UpdateWave(int wave)
     {
         waveText.text = $"{chapterName} - Wave {wave}";
+    }
+
+    public void PauseGameButtonAction()
+    {
+        currentState = GameState.Paused;
+        Time.timeScale = 0f;
+
+        pausePanel.gameObject.SetActive(true);
+        pauseSidePanel.gameObject.SetActive(true);
+        pausePanel.DOFade(0.75f, 0.25f).SetUpdate(true);
+        pauseSidePanel.rectTransform.DOAnchorPosX(0, 0.25f).SetUpdate(true);
+    }
+
+    public void SettingPanelOn()
+    {
+
+    }
+
+    public void RestartGameButtonAction()
+    {
+        pausePanel.DOFade(0f, 0.25f).SetUpdate(true).OnComplete(() =>
+        {
+            pausePanel.gameObject.SetActive(false);
+        });
+        pauseSidePanel.rectTransform.DOAnchorPosX(350, 0.25f).SetUpdate(true).OnComplete(() =>
+        {
+            pauseSidePanel.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+            currentState = GameState.Playing;
+        });
     }
 }

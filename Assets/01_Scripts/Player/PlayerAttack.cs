@@ -42,6 +42,6 @@ public class PlayerAttack : MonoBehaviour
 
         canFire = false;
         GameObject bullet = Instantiate(defaultBulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position);
+        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, transform);
     }
 }
