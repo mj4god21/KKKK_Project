@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378b478d5d4c7d145ad9050584ea5fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireSpeed: 10
+  fireSpeed: 15
   key: Bullet
   damage: {fileID: 0}
+  playerPos: {fileID: 0}
