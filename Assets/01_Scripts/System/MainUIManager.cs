@@ -9,11 +9,15 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     [Header("UI")]
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI waveText;
+    public TextMeshProUGUI hpText;
     public Image pausePanel;
     public Image pauseSidePanel;
     public Image settingPanel;
+    public Image clearPanel;
+    public Image playerEXPImage;
 
     [Header("System")]
+    public HP playerHP;
     public int nowTime;
     public GameState currentState = GameState.Playing;
 
@@ -22,6 +26,7 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     private void Start()
     {
         StartCoroutine(TimeRoutine());
+        PlayerHit_UIUpdate(playerHP.maxHp);
     }
 
     private IEnumerator TimeRoutine()
@@ -46,6 +51,7 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     public void UpdateChapter(int chapter)
     {
         chapterName = WaveSystem.Instance.chapterSO[chapter].chapterName;
+
     }
 
     public void UpdateWave(int wave)
@@ -81,5 +87,47 @@ public class MainUIManager : MonoSingleton<MainUIManager>
             Time.timeScale = 1f;
             currentState = GameState.Playing;
         });
+    }
+
+    public void ClearWave()
+    {
+        clearPanel.gameObject.SetActive(true);
+        Time.timeScale = 0f;
+
+        Sequence clearWaveSeq = DOTween.Sequence();
+
+
+        clearWaveSeq.Append(clearPanel.rectTransform.DOAnchorPos(Vector2.zero, 0.5f))
+            .AppendInterval(1f)
+            .Append(clearPanel.rectTransform.DOAnchorPos(new Vector2(1920, 0), 0.5f).OnComplete(() =>
+            {
+                clearPanel.gameObject.SetActive(false);
+                clearPanel.rectTransform.position = new Vector2(-1920, 0);
+                Time.timeScale = 1f;
+            }))
+            .SetUpdate(true);
+            
+        playerHP.hp = playerHP.maxHp;
+    }
+
+    public void GetEXP_UIUpdate(float currentEXP, float maxEXP)
+    {
+
+        if(currentEXP >= maxEXP)
+        {
+            playerEXPImage.fillAmount = 1f;
+            return;
+        }
+        float amount = Mathf.Clamp01(currentEXP / maxEXP);
+
+        Debug.Log($"[EXP] current: {currentEXP}, max: {maxEXP}, amount: {amount}");
+
+        playerEXPImage.DOKill();
+        playerEXPImage.DOFillAmount(amount, 0.5f).SetEase(Ease.OutCubic);
+    }
+
+    public void PlayerHit_UIUpdate(float value)
+    {
+        hpText.text = value.ToString();
     }
 }

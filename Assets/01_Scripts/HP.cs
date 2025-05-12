@@ -28,6 +28,7 @@ public class HP : MonoBehaviour
     {
         Debug.Log("EnemyDead");
         EnemySpawnSystem.Instance.aliveEnemies--;
+        EnemySpawnSystem.Instance.killedEnemies++;
         Destroy(gameObject);
     }
 
