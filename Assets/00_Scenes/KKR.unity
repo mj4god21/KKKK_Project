@@ -604,7 +604,6 @@ GameObject:
   - component: {fileID: 1694779479}
   - component: {fileID: 1694779478}
   - component: {fileID: 1694779481}
-  - component: {fileID: 1694779480}
   - component: {fileID: 1694779482}
   m_Layer: 0
   m_Name: SkillManager
@@ -642,22 +641,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1694779480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694779477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 378b478d5d4c7d145ad9050584ea5fb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireSpeed: 0
-  key: Bullet
-  damage: {fileID: 0}
-  playerPos: {fileID: 0}
 --- !u!114 &1694779481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e867f64f1a48324199040324bdb3ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
 --- !u!1 &2044944498
 GameObject:
   m_ObjectHideFlags: 0
