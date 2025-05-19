@@ -4946,7 +4946,7 @@ Transform:
   m_GameObject: {fileID: 9456421}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 960, y: 765, z: 0}
+  m_LocalPosition: {x: -3.6, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6697,7 +6697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068c15ecd0cf04b42b6e752acf1b503d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillPanel: {fileID: 8310328110049499567, guid: 20069b2b7b1aa324da5cee5c1066ac0f, type: 3}
+  skillManager: {fileID: 0}
   skillList:
   - {fileID: 3742833101520622284, guid: e1a9ae7c1930f4d4abeb7ccd1d33a624, type: 3}
   - {fileID: 8246346029808618999, guid: 961dce16162d4f54da9d5a4f2200cb42, type: 3}
@@ -7835,6 +7835,52 @@ MonoBehaviour:
   playerHP: {fileID: 1339060106}
   nowTime: 0
   currentState: 0
+--- !u!1 &2119167142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119167144}
+  - component: {fileID: 2119167143}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2119167143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119167142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dffb8f68ff2c4df44b536078c86308b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPrefab: {fileID: 929388664322058240, guid: aab3554c7744f3e4f916806f3cd1187e, type: 3}
+  skillState: 0
+--- !u!4 &2119167144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119167142}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7854,3 +7900,4 @@ SceneRoots:
   - {fileID: 1626122487}
   - {fileID: 2075884178}
   - {fileID: 9456424}
+  - {fileID: 2119167144}

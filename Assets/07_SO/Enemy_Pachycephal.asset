@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_Pachycephal
   m_EditorClassIdentifier: 
   hp: 5
-  moveSpeed: 20
+  moveSpeed: 7
   attackRange: 0
   knockbackForce: 10
   expDropAmount: 5
