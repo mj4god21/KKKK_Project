@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_Ankylo
   m_EditorClassIdentifier: 
   hp: 20
-  moveSpeed: 5
+  moveSpeed: 3
   attackRange: 0
   knockbackForce: 10
   expDropAmount: 5
