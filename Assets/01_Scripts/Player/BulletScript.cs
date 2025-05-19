@@ -9,12 +9,12 @@ public class BulletScript : MonoBehaviour
     [HideInInspector] public Transform playerPos;
 
     private Rigidbody2D rigid;
-    private CapsuleCollider2D collider;
+    private CapsuleCollider2D bulletCollider;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        collider = GetComponent<CapsuleCollider2D>();
+        bulletCollider = GetComponent<CapsuleCollider2D>();
         damage = GetComponent<Damage>();
     }
 

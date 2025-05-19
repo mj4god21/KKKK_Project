@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class SkillUIManager : MonoBehaviour
 {
-    private SkillManager skillManager;
-    public GameObject skillPanel;
+    public SkillManager skillManager;
+    //public GameObject skillPanel;
     public GameObject[] skillList;
     public Transform[] btnTrmList = new Transform[3]; // ⭐ 반드시 3개로 설정
 
@@ -14,13 +14,13 @@ public class SkillUIManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log($"Awake on: {gameObject.name}, skillPanel is {(skillPanel == null ? "NULL" : "SET")}");
+        //Debug.Log($"Awake on: {gameObject.name}, skillPanel is {(skillPanel == null ? "NULL" : "SET")}");
         FoundTrm();
     }
 
     private void Start()
     {
-        skillManager = GetComponent<SkillManager>();
+        //skillManager = GetComponent<SkillManager>();
     }
 
     private void FoundTrm()
@@ -83,7 +83,13 @@ public class SkillUIManager : MonoBehaviour
     {
         Debug.Log($"스킬 {skillIndex + 1} 선택됨");
 
-        if(skillIndex == 0)
+        if (skillManager == null)
+        {
+            Debug.LogError("skillManager가 null입니다! SkillManager 컴포넌트가 붙어 있는지 확인하세요.");
+            return;
+        }
+
+        if (skillIndex == 0)
         {
             skillManager.DamageUp();
         }
