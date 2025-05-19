@@ -75,7 +75,8 @@ public class EnemyScript : MonoBehaviour
         {
             HP playerHP = collision.gameObject.GetComponent<HP>();
             Debug.Log("Enemy's Attack!");
-            damage.Enemy_TakeDamage(playerHP, hp.maxHp - hp.hp);
+
+            damage.Enemy_TakeDamage(playerHP, hp.hp);
             playerHP.CastDead();
             Destroy(gameObject);
         }

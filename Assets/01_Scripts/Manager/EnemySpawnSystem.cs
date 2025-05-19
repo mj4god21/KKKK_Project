@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
 {
     [HideInInspector] public int aliveEnemies = 0;
+    [HideInInspector] public int killedEnemies = 0;
 
     public float spawnTime = 2f;
     public int spawnPointCount = 20;
@@ -69,7 +70,6 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
             if (spawnedEnemies < WaveSystem.Instance.maxEnemyCount &&
                 aliveEnemies < WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowChapter].maxEnemyCount)
             {
-
                 int randomEnemyIndex = Random.Range(0, WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowChapter].enemyPrefab.Length);
 
                 enemyPrefab = WaveSystem.Instance.chapterSO[WaveSystem.Instance.nowChapter].enemyPrefab[randomEnemyIndex];

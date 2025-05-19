@@ -13,6 +13,7 @@ public class Damage : MonoBehaviour
         }
 
         playerHP.hp -= damage;
+        MainUIManager.Instance.PlayerHit_UIUpdate(playerHP.hp);
         playerHP.CastDead();
     }
 

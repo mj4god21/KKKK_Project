@@ -18,11 +18,12 @@ public class WaveSystem : MonoSingleton<WaveSystem>
 
     private void Update()
     {
-        if(waveTime <= MainUIManager.Instance.nowTime)
+        if(waveTime <= MainUIManager.Instance.nowTime || EnemySpawnSystem.Instance.killedEnemies >= maxEnemyCount)
         {
             MainUIManager.Instance.nowTime = 0;
             nowWave++;
             NextWave(nowWave);
+            EnemySpawnSystem.Instance.killedEnemies = 0;
         }
     }
 
@@ -45,9 +46,6 @@ public class WaveSystem : MonoSingleton<WaveSystem>
         {
             case 0:
                 maxEnemyCount = Mathf.CeilToInt((waveF / 2) * 10);
-                EnemySpawnSystem.Instance.spawnTime = waveTime / maxEnemyCount;
-                Debug.Log("spawnTime: " + EnemySpawnSystem.Instance.spawnTime);
-                Debug.Log("maxEnemyCount: " + maxEnemyCount);
                 break;
 
             case 1:
@@ -71,7 +69,7 @@ public class WaveSystem : MonoSingleton<WaveSystem>
 
         Debug.Log(maxEnemyCount);
         waveTime = chapterSO[0].waveTime; // 웨이브 지속시간 부분 (=> 전체가 똑같기 때문에 이대로 납둬도 됌)
-
+        MainUIManager.Instance.ClearWave();
         MainUIManager.Instance.UpdateWave(nowWave);
     }
 
