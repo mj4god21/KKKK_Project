@@ -8,12 +8,8 @@ public class AutoClicker : MonoBehaviour
     public GameObject bulletPrefab;
     public Vector3[] spawnPos;
 
-    private int[] damage = { 10, 20, 20, 50, 50 };
-    private int[] attackSpeed = { 5, 3, 3, 1, 1 };
-
-    private int nowDamage; 
-    private int nowAttackSpeed;
-    private int spawnIdx;
+    [HideInInspector] public int nowDamage;
+    [HideInInspector] public int nowAttackSpeed;
 
     private PlayerScript player;
     private Damage damageScript;
@@ -57,26 +53,26 @@ public class AutoClicker : MonoBehaviour
     private void ResetAutoClicker()
     {
         nowLevel = 0;
-        nowDamage = damage[nowLevel];
-        nowAttackSpeed = attackSpeed[nowLevel];
+        nowDamage = 10;
+        nowAttackSpeed = 5;
 
         damageScript.damage = nowDamage;
     }
 
-    public void AutoClickerLevelUp()
-    {
-        if (nowLevel <= 4) nowLevel++;
-        else return;
+    //public void AutoClickerLevelUp()
+    //{
+    //    if (nowLevel <= 4) nowLevel++;
+    //    else return;
 
-        nowDamage = damage[nowLevel];
-        nowAttackSpeed = attackSpeed[nowLevel];
+    //    nowDamage = damage[nowLevel];
+    //    nowAttackSpeed = attackSpeed[nowLevel];
 
-        damageScript.damage = nowDamage;
+    //    damageScript.damage = nowDamage;
 
-        if (nowLevel != 1 && nowLevel % 2 == 1)
-        {
-            Instantiate(this, spawnPos[spawnIdx], Quaternion.identity);
-            spawnIdx++;
-        }
-    }
+    //    if (nowLevel != 1 && nowLevel % 2 == 1)
+    //    {
+    //        Instantiate(this, spawnPos[spawnIdx], Quaternion.identity);
+    //        spawnIdx++;
+    //    }
+    //}
 }

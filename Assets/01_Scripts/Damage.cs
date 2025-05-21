@@ -9,7 +9,7 @@ public class Damage : MonoBehaviour
         if (playerHP == null)
         {
             Debug.LogError("playerHP is null.");
-            return;  // enemyHP가 null이면 메서드를 더 이상 실행하지 않음
+            return;  // playerHP가 null이면 메서드를 더 이상 실행하지 않음
         }
 
         playerHP.hp -= damage;
@@ -27,6 +27,8 @@ public class Damage : MonoBehaviour
         }
 
         enemyHP.hp -= damage;
+        SkillData.Instance.attackCount_BloodHeal++;
+        SkillData.Instance.attackCount_SlowArea++;
         enemyHP.CastDead();
     }
 }

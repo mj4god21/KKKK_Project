@@ -7,7 +7,7 @@ public class PlayerScript : MonoBehaviour
     [HideInInspector] public List<GameObject> enemies = new List<GameObject>();
     [HideInInspector] public GameObject target;
 
-    private float scanInterval = 1.0f; // 적 스캔 주기 (초)
+    private float scanInterval = 0.2f; // 적 스캔 주기 (초)
     private float scanTimer = 0f;
 
     void Update()
