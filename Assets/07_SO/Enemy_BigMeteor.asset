@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_BigMeteor
   m_EditorClassIdentifier: 
   hp: 50
-  moveSpeed: 15
+  moveSpeed: 7
   attackRange: 0
   knockbackForce: 10
   expDropAmount: 10

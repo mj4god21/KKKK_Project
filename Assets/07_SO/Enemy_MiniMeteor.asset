@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_MiniMeteor
   m_EditorClassIdentifier: 
   hp: 30
-  moveSpeed: 10
+  moveSpeed: 5
   attackRange: 0
   knockbackForce: 10
   expDropAmount: 10

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_MeteorShard
   m_EditorClassIdentifier: 
   hp: 3
-  moveSpeed: 30
+  moveSpeed: 10
   attackRange: 0
   knockbackForce: 10
   expDropAmount: 10
