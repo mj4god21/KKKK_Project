@@ -83,7 +83,7 @@ public class SkillUIManager : MonoBehaviour
     {
         Debug.Log($"스킬 {skillIndex + 1} 선택됨");
 
-        if (skillManager == null)
+        if (SkillData.Instance == null)
         {
             Debug.LogError("skillManager가 null입니다! SkillManager 컴포넌트가 붙어 있는지 확인하세요.");
             return;
@@ -91,18 +91,30 @@ public class SkillUIManager : MonoBehaviour
 
         if (skillIndex == 0)
         {
-            skillManager.DamageUp();
+            SkillData.Instance.Skill_ClickBuff();
         }
         else if(skillIndex == 1)
         {
-            skillManager.HPUp();
+            SkillData.Instance.Skill_HPBuff();
         }
         else if(skillIndex == 2)
         {
-            skillManager.AutoAttacker();
+            SkillData.Instance.Skill_AutoClick();
+        }
+        else if(skillIndex == 3)
+        {
+            SkillData.Instance.Skill_SlowArea();
+        }
+        else if (skillIndex == 4)
+        {
+            SkillData.Instance.Skill_EXPBuff();
+        }
+        else if (skillIndex == 5)
+        {
+            SkillData.Instance.Skill_BloodHeal();
         }
 
-            foreach (GameObject button in currentButtons)
+        foreach (GameObject button in currentButtons)
             {
                 Destroy(button);
             }

@@ -10,12 +10,14 @@ public class BulletScript : MonoBehaviour
 
     private Rigidbody2D rigid;
     private CapsuleCollider2D bulletCollider;
+    private PlayerAttack playerAttack;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         bulletCollider = GetComponent<CapsuleCollider2D>();
         damage = GetComponent<Damage>();
+        playerAttack = FindObjectOfType<PlayerAttack>();
     }
 
     public void Fire(Vector3 targetPos, Transform attackTransform)
@@ -37,6 +39,15 @@ public class BulletScript : MonoBehaviour
             {
                 Vector2 knockcbackDir = (collision.transform.position - playerPos.position).normalized;
                 enemyScript.ApplyKnockback(knockcbackDir);
+            }
+
+            if (SkillData.Instance.slowArea_canSummon)
+            {
+                playerAttack.SlowAreaSummon();
+            }
+            if (SkillData.Instance.bloodHeal_canHeal)
+            {
+                SkillData.Instance.Skill_BloodHeal_Invoke();
             }
 
             damage.Player_TakeDamage(enemyHP, damage.damage);
