@@ -3,14 +3,14 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     private BulletScript bulletScript;
-    private HP playerHP;
+    public HP playerHP;
     public GameObject autoPrefab;
     public SkillState skillState = SkillState.none;
 
     private void Start()
     {
         bulletScript = GetComponent<BulletScript>();
-        playerHP = GetComponent<HP>();
+        //playerHP = GetComponent<HP>();
     }
 
     public void DamageUp()
