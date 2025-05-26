@@ -15,6 +15,7 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     public Image settingPanel;
     public Image clearPanel;
     public Image playerEXPImage;
+    public 
 
     [Header("System")]
     public HP playerHP;
@@ -128,6 +129,7 @@ public class MainUIManager : MonoSingleton<MainUIManager>
 
     public void PlayerHit_UIUpdate(float value)
     {
+        float hp01 = Mathf.Clamp01(value);
         hpText.text = value.ToString();
     }
 }
