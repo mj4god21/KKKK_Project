@@ -6213,8 +6213,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Wave 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fad0cc4ec5671b44954112cbc3a5c43, type: 2}
-  m_sharedMaterial: {fileID: -7644559468337268522, guid: 4fad0cc4ec5671b44954112cbc3a5c43, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6697,7 +6697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068c15ecd0cf04b42b6e752acf1b503d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillManager: {fileID: 0}
+  skillManager: {fileID: 2119167143}
   skillList:
   - {fileID: 3742833101520622284, guid: e1a9ae7c1930f4d4abeb7ccd1d33a624, type: 3}
   - {fileID: 8246346029808618999, guid: 961dce16162d4f54da9d5a4f2200cb42, type: 3}
@@ -6952,8 +6952,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fad0cc4ec5671b44954112cbc3a5c43, type: 2}
-  m_sharedMaterial: {fileID: -7644559468337268522, guid: 4fad0cc4ec5671b44954112cbc3a5c43, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7347,6 +7347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36f43fb3d083e24d908f45bcdd2c3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillManager: {fileID: 0}
   fireDuration: 0.5
   canFire: 1
   defaultBulletPrefab: {fileID: 7020553086843449758, guid: 37efdbb2bd4448a44a9874fc8c605e6f, type: 3}
@@ -7864,6 +7865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffb8f68ff2c4df44b536078c86308b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHP: {fileID: 1339060106}
   autoPrefab: {fileID: 929388664322058240, guid: aab3554c7744f3e4f916806f3cd1187e, type: 3}
   skillState: 0
 --- !u!4 &2119167144
