@@ -14,8 +14,8 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     public Image pauseSidePanel;
     public Image settingPanel;
     public Image clearPanel;
-    public Image playerEXPImage;
-    public 
+    public Image playerEXPImage; 
+    public Image playerHPImage; 
 
     [Header("System")]
     public HP playerHP;
@@ -107,7 +107,7 @@ public class MainUIManager : MonoSingleton<MainUIManager>
                 Time.timeScale = 1f;
             }))
             .SetUpdate(true);
-            
+        PlayerHP_FullHeal();
         playerHP.hp = playerHP.maxHp;
     }
 
@@ -129,7 +129,15 @@ public class MainUIManager : MonoSingleton<MainUIManager>
 
     public void PlayerHit_UIUpdate(float value)
     {
-        float hp01 = Mathf.Clamp01(value);
+        float hp01 = Mathf.Clamp01(value / playerHP.maxHp);
+        playerHPImage.DOFillAmount(hp01, 0.25f).SetEase(Ease.OutCubic);
         hpText.text = value.ToString();
+    }
+
+    public void PlayerHP_FullHeal()
+    {
+        playerHPImage.DOFillAmount(1, 0.25f)
+            .SetEase(Ease.OutCubic)
+            .SetUpdate(true);
     }
 }

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e98a2e3e1a2e3479427aed855419dd, type: 3}
   m_Name: Chapter3-StoneAge
   m_EditorClassIdentifier: 
-  chapterIdx: 0
-  chapterName: 
-  description: 
-  wave: 0
-  waveTime: 0
+  chapterIdx: 2
+  chapterName: "\uC11D\uAE30\uC2DC\uB300"
+  description: "\uB3CC\uACFC \uBB38\uBA85\uC774 \uC0DD\uACA8\uB098\uB294 \uACF3"
+  wave: 15
+  waveTime: 60
   enemyPrefab: []
-  maxEnemyCount: 0
+  maxEnemyCount: 50

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e98a2e3e1a2e3479427aed855419dd, type: 3}
   m_Name: Chapter4-MiddleAge
   m_EditorClassIdentifier: 
-  chapterIdx: 0
-  chapterName: 
-  description: 
-  wave: 0
-  waveTime: 0
+  chapterIdx: 3
+  chapterName: "\uC911\uC138\uC2DC\uB300"
+  description: "\uB0A0\uCE74\uB85C\uC6B4 \uCC3D\uACFC \uB3C4\uB07C\uAC00 \uB0A0\uC544\uB4DC\uB294
+    \uACF3"
+  wave: 15
+  waveTime: 60
   enemyPrefab: []
-  maxEnemyCount: 0
+  maxEnemyCount: 70
