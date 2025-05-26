@@ -6972,6 +6972,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068c15ecd0cf04b42b6e752acf1b503d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  skillManager: {fileID: 2119167143}
+=======
+>>>>>>> main
   skillList:
   - {fileID: 3742833101520622284, guid: e1a9ae7c1930f4d4abeb7ccd1d33a624, type: 3}
   - {fileID: 3742833101520622284, guid: df32cd8d23dc8764b90ad3497f519113, type: 3}
@@ -7621,6 +7625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36f43fb3d083e24d908f45bcdd2c3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillManager: {fileID: 0}
   fireDuration: 0.5
   canFire: 1
   defaultBulletPrefab: {fileID: 7020553086843449758, guid: 37efdbb2bd4448a44a9874fc8c605e6f, type: 3}
@@ -8130,6 +8135,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!114 &2119167143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119167142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dffb8f68ff2c4df44b536078c86308b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: {fileID: 1339060106}
+  autoPrefab: {fileID: 929388664322058240, guid: aab3554c7744f3e4f916806f3cd1187e, type: 3}
+  skillState: 0
+=======
+>>>>>>> main
 --- !u!4 &2119167144
 Transform:
   m_ObjectHideFlags: 0

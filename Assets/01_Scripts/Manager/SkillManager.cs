@@ -9,6 +9,11 @@ public class SkillManager : MonoBehaviour
     private PlayerAttack playerAttack;
     private Damage playerBulletDamage;
 
+<<<<<<< HEAD
+    public void DamageUp()
+    {
+        skillState = SkillState.DamageUp;
+=======
     private void Start()
     {
         playerAttack = playerHP.gameObject.GetComponent<PlayerAttack>();
@@ -20,6 +25,7 @@ public class SkillManager : MonoBehaviour
     {
         //skillState = SkillState.DamageUp;
         playerBulletDamage.damage *= 2;
+>>>>>>> main
     }
 
     public void HPUp()

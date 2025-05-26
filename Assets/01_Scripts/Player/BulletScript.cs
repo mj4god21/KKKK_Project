@@ -56,4 +56,12 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void Initialize(SkillManager manager)
+    {
+        if(manager.skillState == SkillState.DamageUp)
+        {
+            damage.damage *= 2;
+        }
+    }
 }
