@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e98a2e3e1a2e3479427aed855419dd, type: 3}
   m_Name: Chapter2-IceAge
   m_EditorClassIdentifier: 
-  chapterIdx: 0
-  chapterName: 
-  description: 
-  wave: 0
-  waveTime: 0
+  chapterIdx: 1
+  chapterName: "\uBE59\uD558\uAE30"
+  description: "\uCC28\uAC00\uC6B4 \uC228\uC18C\uB9AC\uB9CC \uB4E4\uB9AC\uB294 \uACF3"
+  wave: 10
+  waveTime: 60
   enemyPrefab: []
-  maxEnemyCount: 0
+  maxEnemyCount: 50

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e98a2e3e1a2e3479427aed855419dd, type: 3}
   m_Name: Chapter5-ModernEra
   m_EditorClassIdentifier: 
-  chapterIdx: 0
-  chapterName: 
-  description: 
-  wave: 0
-  waveTime: 0
+  chapterIdx: 4
+  chapterName: "\uD604\uB300\uC2DC\uB300"
+  description: "\uC6B0\uB9AC\uC758 \uC885\uCC29\uC9C0."
+  wave: 20
+  waveTime: 60
   enemyPrefab: []
-  maxEnemyCount: 0
+  maxEnemyCount: 70

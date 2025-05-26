@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SkillUIManager : MonoBehaviour
 {
-    public SkillManager skillManager;
     //public GameObject skillPanel;
     public GameObject[] skillList;
     public Transform[] btnTrmList = new Transform[3]; // ⭐ 반드시 3개로 설정
 
     private List<int> usedIndices = new List<int>();
     private List<GameObject> currentButtons = new List<GameObject>();
+
+    private TextMeshProUGUI[] skillTitleTexts;
+    private TextMeshProUGUI[] skillDescriptionTexts;
 
     private void Awake()
     {
@@ -20,7 +23,19 @@ public class SkillUIManager : MonoBehaviour
 
     private void Start()
     {
-        //skillManager = GetComponent<SkillManager>();
+        skillTitleTexts = new TextMeshProUGUI[skillList.Length];
+        skillDescriptionTexts = new TextMeshProUGUI[skillList.Length];
+
+        for (int i = 0; i < skillList.Length; i++)
+        {
+            Transform title = skillList[i].transform.Find("Title");
+            if (title != null)
+                skillTitleTexts[i] = title.GetComponent<TextMeshProUGUI>();
+
+            Transform description = skillList[i].transform.Find("Text");
+            if (description != null)
+                skillDescriptionTexts[i] = description.GetComponent<TextMeshProUGUI>();
+        }
     }
 
     private void FoundTrm()
@@ -65,7 +80,51 @@ public class SkillUIManager : MonoBehaviour
 
             Button buttonComponent = newSkillButton.GetComponent<Button>();
             int capturedIndex = randIndex;
+            TextUpdate(randIndex);
             buttonComponent.onClick.AddListener(() => SelectSkill(capturedIndex));
+        }
+    }
+
+    private void TextUpdate(int index)
+    {
+        switch(index)
+        {
+            case 0: // 클릭버프
+                skillTitleTexts[index].text = "더 강한 공격";
+                skillDescriptionTexts[index].text = 
+                    SkillData.Instance.clickBuff_descriptions[SkillData.Instance.clickBuff_nowLevel];
+                return;
+
+            case 1: // HP버프
+                skillTitleTexts[index].text = "단단해지기";
+                skillDescriptionTexts[index].text =
+                    SkillData.Instance.hpBuff_descriptions[SkillData.Instance.hpBuff_nowLevel];
+                return;
+            
+            case 2: //오토클릭
+                skillTitleTexts[index].text = "협동 공격";
+                skillDescriptionTexts[index].text =
+                    SkillData.Instance.autoClick_descriptions[SkillData.Instance.autoClick_nowLevel];
+                return;
+            
+            case 3: //슬로우영역
+                skillTitleTexts[index].text = "늪뿌리기";
+                skillDescriptionTexts[index].text =
+                    SkillData.Instance.slowArea_descriptions[SkillData.Instance.slowArea_nowLevel];
+                return;
+            
+            case 4: //경험치 버프
+                skillTitleTexts[index].text = "빠른 성장";
+                skillDescriptionTexts[index].text =
+                    SkillData.Instance.clickBuff_descriptions[SkillData.Instance.expBuff_nowLevel];
+                return;
+            
+            case 5: // 흡혈회복
+                skillTitleTexts[index].text = "흡혈 회복";
+                skillDescriptionTexts[index].text =
+                    SkillData.Instance.clickBuff_descriptions[SkillData.Instance.bloodHeal_nowLevel];
+                return;
+
         }
     }
 
