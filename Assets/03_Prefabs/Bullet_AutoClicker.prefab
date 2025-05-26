@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -3796613512374168021, guid: 87fc4f8138347e94cb068de337e25e8d, type: 3}
   m_Color: {r: 0.52553254, g: 1, b: 0.4669811, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e867f64f1a48324199040324bdb3ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
 --- !u!114 &8296611951031253277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,4 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireSpeed: 10
+  key: Bullet
   damage: {fileID: 0}
+  playerPos: {fileID: 0}

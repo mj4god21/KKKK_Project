@@ -18,17 +18,23 @@ public class WaveSystem : MonoSingleton<WaveSystem>
 
     private void Update()
     {
-        if(waveTime <= MainUIManager.Instance.nowTime || EnemySpawnSystem.Instance.killedEnemies >= maxEnemyCount)
+        if(waveTime <= MainUIManager.Instance.nowTime || EnemySpawnSystem.Instance.killedEnemies >= maxEnemyCount
+            || (EnemySpawnSystem.Instance.isEnemyAllSpawned && !IsEnemyAlive()))
         {
-            MainUIManager.Instance.nowTime = 0;
-            nowWave++;
             NextWave(nowWave);
             EnemySpawnSystem.Instance.killedEnemies = 0;
         }
     }
 
+    private bool IsEnemyAlive()
+    {
+        if (FindObjectOfType<EnemyScript>() != null) return true;
+        else return false;
+    }
+
     private void NextWave(int nowWave)
     {
+        this.nowWave++;
         float waveF = nowWave;
 
         if (chapterSO[nowChapter].wave <= nowWave)
@@ -71,6 +77,7 @@ public class WaveSystem : MonoSingleton<WaveSystem>
         waveTime = chapterSO[0].waveTime; // 웨이브 지속시간 부분 (=> 전체가 똑같기 때문에 이대로 납둬도 됌)
         MainUIManager.Instance.ClearWave();
         MainUIManager.Instance.UpdateWave(nowWave);
+        MainUIManager.Instance.nowTime = 0;
     }
 
     private void NextChapter(int nowChapter)

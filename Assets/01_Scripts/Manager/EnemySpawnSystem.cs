@@ -9,12 +9,13 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
     [HideInInspector] public int killedEnemies = 0;
 
     public float spawnTime = 2f;
-    public int spawnPointCount = 20;
     public float spawnOffset = 1f;
+    public int spawnPointCount = 20;
+    public int spawnedEnemies = 0;
+    public bool isEnemyAllSpawned = false;
 
     private GameObject enemyPrefab;
     private List<Vector2> spawnPositions = new List<Vector2>();
-    private int spawnedEnemies = 0;
     private bool isGameOver;
 
     private void Awake()
@@ -90,6 +91,9 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
             {
                 yield return null;
             }
+
+            if (spawnedEnemies >= WaveSystem.Instance.maxEnemyCount) isEnemyAllSpawned = true;
+            else isEnemyAllSpawned = false;
         }
         yield return null;
     }
