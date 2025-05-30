@@ -45,9 +45,7 @@ public class PlayerAttack : MonoBehaviour
         canFire = false;
         GameObject bullet = Instantiate(defaultBulletPrefab, transform.position, Quaternion.identity);
         bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, transform);
-<<<<<<< HEAD
         bullet.GetComponent<BulletScript>().Initialize(skillManager);
-=======
 
         if (SkillData.Instance.slowArea_canSummon) SlowAreaSummon();
     }
@@ -55,6 +53,5 @@ public class PlayerAttack : MonoBehaviour
     public void SlowAreaSummon()
     {
         Instantiate(SkillData.Instance.slowArea_Prefab, player.target.transform.position, Quaternion.identity);
->>>>>>> main
     }
 }

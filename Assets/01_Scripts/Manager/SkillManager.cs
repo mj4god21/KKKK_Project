@@ -4,16 +4,11 @@ public class SkillManager : MonoBehaviour
 {
     public HP playerHP;
     public GameObject autoPrefab;
-    //public SkillState skillState = SkillState.none;
+    public SkillState skillState = SkillState.none;
 
     private PlayerAttack playerAttack;
     private Damage playerBulletDamage;
 
-<<<<<<< HEAD
-    public void DamageUp()
-    {
-        skillState = SkillState.DamageUp;
-=======
     private void Start()
     {
         playerAttack = playerHP.gameObject.GetComponent<PlayerAttack>();
@@ -24,8 +19,8 @@ public class SkillManager : MonoBehaviour
     public void DamageUp()
     {
         //skillState = SkillState.DamageUp;
+        skillState = SkillState.DamageUp;
         playerBulletDamage.damage *= 2;
->>>>>>> main
     }
 
     public void HPUp()
