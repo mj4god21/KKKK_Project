@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enemy_Tyranno
   m_EditorClassIdentifier: 
   hp: 10
-  moveSpeed: 3
+  moveSpeed: 5
   attackRange: 0
-  knockbackForce: 5
+  knockbackForce: 2
   expDropAmount: 5
   expPrefab: {fileID: 8219827729629590562, guid: 64ec3d41ffe04ef4492c9f5aad218968, type: 3}
