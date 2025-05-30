@@ -41,10 +41,10 @@ public class BulletScript : MonoBehaviour
                 enemyScript.ApplyKnockback(knockcbackDir);
             }
 
-            if (SkillData.Instance.slowArea_canSummon)
-            {
-                playerAttack.SlowAreaSummon();
-            }
+            //if (SkillData.Instance.slowArea_canSummon)
+            //{
+            //    playerAttack.SlowAreaSummon();
+            //}
             if (SkillData.Instance.bloodHeal_canHeal)
             {
                 SkillData.Instance.Skill_BloodHeal_Invoke();

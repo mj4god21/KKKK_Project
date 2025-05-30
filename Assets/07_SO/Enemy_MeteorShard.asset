@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enemy_MeteorShard
   m_EditorClassIdentifier: 
   hp: 3
-  moveSpeed: 10
+  moveSpeed: 4
   attackRange: 0
-  knockbackForce: 10
+  knockbackForce: 2
   expDropAmount: 10
   expPrefab: {fileID: 8219827729629590562, guid: 64ec3d41ffe04ef4492c9f5aad218968, type: 3}
