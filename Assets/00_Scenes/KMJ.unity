@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &9456422
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5656,7 +5656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bbb7a8bb1df3e498acb198e88c6328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRangeRadius: 2
+  attackRangeRadius: 4
 --- !u!4 &450859564
 Transform:
   m_ObjectHideFlags: 0
@@ -5731,8 +5731,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
+  m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6004,7 +6004,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uCCB4\uB825 \uC804\uCCB4 \uD68C\uBCF5!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fad0cc4ec5671b44954112cbc3a5c43, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: -7644559468337268522, guid: 4fad0cc4ec5671b44954112cbc3a5c43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6070,7 +6070,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &563006015
@@ -6301,8 +6301,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Wave 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
+  m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6978,7 +6978,6 @@ MonoBehaviour:
   - {fileID: 3742833101520622284, guid: c7da020a9abaff348a7719e76940f4ab, type: 3}
   - {fileID: 3742833101520622284, guid: ee6e351c86e96aa419616a4b03e3a99f, type: 3}
   - {fileID: 3742833101520622284, guid: 8ecfe6318dbacb244a28c52d8c818df9, type: 3}
-  - {fileID: 3742833101520622284, guid: 117ab74101c372e41ba80abe372d9e42, type: 3}
   btnTrmList:
   - {fileID: 1747004246}
   - {fileID: 338751042}
@@ -7032,6 +7031,7 @@ MonoBehaviour:
   Exp: 0
   maxExp: 0
   nowLevel: 0
+  expBuffAmount: 1
 --- !u!4 &992594059
 Transform:
   m_ObjectHideFlags: 0
@@ -7226,8 +7226,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
+  m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7362,7 +7362,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Clear!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fad0cc4ec5671b44954112cbc3a5c43, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: -7644559468337268522, guid: 4fad0cc4ec5671b44954112cbc3a5c43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7428,7 +7428,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1315497173
@@ -7621,7 +7621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36f43fb3d083e24d908f45bcdd2c3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDuration: 0.5
+  fireDuration: 0
   canFire: 1
   defaultBulletPrefab: {fileID: 7020553086843449758, guid: 37efdbb2bd4448a44a9874fc8c605e6f, type: 3}
 --- !u!114 &1339060106
@@ -8124,7 +8124,7 @@ GameObject:
   - component: {fileID: 2119167144}
   - component: {fileID: 2119167145}
   m_Layer: 0
-  m_Name: SkillManager
+  m_Name: SkillData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8164,11 +8164,11 @@ MonoBehaviour:
   clickBuff_stoneSprite: {fileID: 3529648559062562581, guid: 87fc4f8138347e94cb068de337e25e8d, type: 3}
   clickBuff_nowLevel: 0
   clickBuff_descriptions:
-  - "\uD22C\uC0AC\uCCB4\uAC00 \uB3CC\uB369\uC774\uB85C \uBCC0\uD55C\uB2E4. \uD074\uB9AD
-    \uB2F9 \uD53C\uD574\uB7C9\uC774 200% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD074\uB9AD \uB2F9 \uD53C\uD574\uB7C9\uC774 300% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD074\uB9AD \uB2F9 \uD53C\uD574\uB7C9\uC774 400% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD074\uB9AD \uB2F9 \uD53C\uD574\uB7C9\uC774 500% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uD22C\uC0AC\uCCB4\uAC00 \uB3CC\uB369\uC774\uB85C \uBCC0\uD55C\uB2E4.\\n\uD074\uB9AD
+    \uB2F9 \uD53C\uD574\uB7C9\uC774 200%\\n\uC99D\uAC00\uD55C\uB2E4."
+  - "\uD53C\uD574\uB7C9\uC774 300% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uD53C\uD574\uB7C9\uC774 400% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uD53C\uD574\uB7C9\uC774 500% \uC99D\uAC00\uD55C\uB2E4."
   autoClick_nowLevel: 0
   autoClick_Prefab: {fileID: 929388664322058240, guid: aab3554c7744f3e4f916806f3cd1187e, type: 3}
   autoClick_spawnPoint:
@@ -8176,13 +8176,13 @@ MonoBehaviour:
   - {x: 3, y: -2, z: 0}
   - {x: 0, y: 2.5, z: 0}
   autoClick_descriptions:
-  - "\uCE5C\uAD6C \uC54C\uC774 \uC18C\uD658\uB41C\uB2E4.\n5\uCD08 \uB9C8\uB2E4 10\uC758
-    \uD53C\uD574\uB7C9\uC758 \uD22C\uC0AC\uCCB4\uB97C \uBC1C\uC0AC\uD55C\uB2E4."
-  - "\uD22C\uC0AC\uCCB4\uC758 \uBC1C\uC0AC \uAC04\uACA9\uC774 3\uCD08\uB85C \uAC10\uC18C\uD558\uACE0,
-    20\uC758 \uD53C\uD574\uB7C9\uC744 \uC785\uD78C\uB2E4."
+  - "\uCE5C\uAD6C \uC54C\uC774 \uC18C\uD658\uB41C\uB2E4.\\n5\uCD08 \uB9C8\uB2E4 10\uC758
+    \uD53C\uD574\uB7C9\uC758\\n\uD22C\uC0AC\uCCB4\uB97C \uBC1C\uC0AC\uD55C\uB2E4."
+  - "\uACF5\uACA9 \uAC04\uACA9\uC774 3\uCD08\uB85C \uAC10\uC18C\uD558\uACE0,\\n20\uC758
+    \uD53C\uD574\uB7C9\uC744 \uC785\uD78C\uB2E4."
   - "\uCE5C\uAD6C \uC54C\uC774 1\uAC1C \uB354 \uB298\uC5B4\uB09C\uB2E4."
-  - "\uD22C\uC0AC\uCCB4\uC758 \uBC1C\uC0AC \uAC04\uACA9\uC774 1\uCD08\uB85C \uAC10\uC18C\uD558\uACE0,
-    50\uC758 \uD53C\uD574\uB7C9\uC744 \uC785\uD78C\uB2E4."
+  - "\uACF5\uACA9 \uAC04\uACA9\uC774 1\uCD08\uB85C \uAC10\uC18C\uD558\uACE0,\\n50\uC758
+    \uD53C\uD574\uB7C9\uC744 \uC785\uD78C\uB2E4."
   - "\uCE5C\uAD6C \uC54C\uC774 1\uAC1C \uB354 \uB298\uC5B4\uB09C\uB2E4."
   hpBuff_nowLevel: 0
   hpBuff_sprites:
@@ -8190,30 +8190,30 @@ MonoBehaviour:
   - {fileID: 8863232473996215911, guid: e5c0f7d66b875f94bbdb27e32f7d6830, type: 3}
   - {fileID: 8377099095704447304, guid: 733ec5e56806fc14ea13bceb86d3ac48, type: 3}
   hpBuff_descriptions:
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 100% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uCD5C\uB300 \uCCB4\uB825\uC774 100% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
   slowArea_canSummon: 0
   slowArea_nowLevel: 0
   slowArea_Prefab: {fileID: 8268757710493581047, guid: 23ba2480bfbad0d42924ec55ec8fb65f, type: 3}
   slowArea_descriptions:
-  - "20\uD68C \uACF5\uACA9 \uC2DC \uD574\uB2F9 \uC801\uC758 \uC704\uCE58\uC5D0 \uB2AA\uC9C0\uB300\uB97C
-    \uB9CC\uB4E0\uB2E4.\n\uB2AA\uC9C0\uB300 \uC704\uC758 \uC801\uC740 \uC18D\uB3C4\uAC00
-    20% \uAC10\uC18C\uD55C\uB2E4."
-  - "\uB2AA\uC9C0\uB300\uC758 \uC2AC\uB85C\uC6B0 \uD6A8\uACFC\uAC00 40%\uB85C \uC99D\uAC00\uB41C\uB2E4."
-  - "\uB2AA\uC9C0\uB300\uC758 \uC2AC\uB85C\uC6B0 \uD6A8\uACFC\uAC00 50%\uB85C \uC99D\uAC00\uB418\uACE0,
-    \uC601\uC5ED \uD06C\uAE30\uAC00 1.5\uBC30 \uC99D\uAC00\uD55C\uB2E4."
-  - "\uB2AA\uC9C0\uB300\uC758 \uC9C0\uC18D\uC2DC\uAC04\uC774 3\uCD08\uB85C \uC99D\uAC00\uD55C\uB2E4."
-  - "\uB2AA\uC9C0\uB300\uC758 \uC9C0\uC18D\uC2DC\uAC04\uC774 5\uCD08\uB85C \uC99D\uAC00\uD55C\uB2E4."
+  - "\uC801\uC758 \uC704\uCE58\uC5D0 \uB2AA\uC9C0\uB300\uB97C \uB9CC\uB4E0\uB2E4.\\n\uB2AA\uC9C0\uB300
+    \uC704\uC758 \uC801\uC740\\n\uC774\uB3D9 \uC18D\uB3C4\uAC00 20% \uAC10\uC18C\uD55C\uB2E4.\\n\\n\\n\\n\\n20\uD68C
+    \uACF5\uACA9\uB9C8\uB2E4\\n1\uD68C \uBC1C\uB3D9"
+  - "\uAC10\uC18D \uD6A8\uACFC\uAC00 40%\uB85C \uC99D\uAC00\uB41C\uB2E4."
+  - "\uAC10\uC18D \uD6A8\uACFC\uAC00 50%\uB85C \uC99D\uAC00\uB418\uACE0,\\n\uC601\uC5ED\uC774
+    1.5\uBC30 \uC99D\uAC00\uD55C\uB2E4."
+  - "\uC9C0\uC18D\uC2DC\uAC04\uC774 3\uCD08\uB85C \uC99D\uAC00\uD55C\uB2E4."
+  - "\uC9C0\uC18D\uC2DC\uAC04\uC774 5\uCD08\uB85C \uC99D\uAC00\uD55C\uB2E4."
   expBuff_nowLevel: 0
   expBuff_descriptions:
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 100% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uACBD\uD5D8\uCE58 \uD761\uC218\uB7C9\uC774\\n100% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uACBD\uD5D8\uCE58 \uD761\uC218\uB7C9\uC774\\n150% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uACBD\uD5D8\uCE58 \uD761\uC218\uB7C9\uC774\\n200% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uACBD\uD5D8\uCE58 \uD761\uC218\uB7C9\uC774\\n250% \uC99D\uAC00\uD55C\uB2E4."
+  - "\uACBD\uD5D8\uCE58 \uD761\uC218\uB7C9\uC774\\n300% \uC99D\uAC00\uD55C\uB2E4."
   bloodHeal_canHeal: 0
   bloodHeal_nowLevel: 0
   bloodHeal_descriptions:

@@ -26,6 +26,8 @@ public class Damage : MonoBehaviour
             return;  // enemyHP가 null이면 메서드를 더 이상 실행하지 않음
         }
 
+        Debug.Log($"PlayerDamage: {damage}");
+
         enemyHP.hp -= damage;
         SkillData.Instance.attackCount_BloodHeal++;
         SkillData.Instance.attackCount_SlowArea++;

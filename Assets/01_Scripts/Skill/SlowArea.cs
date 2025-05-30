@@ -1,35 +1,35 @@
-using UnityEngine;
+//using UnityEngine;
 
-public class SlowArea : MonoBehaviour
-{
-    public int lastTime;
-    public float slowPercent;
+//public class SlowArea : MonoBehaviour
+//{
+//    public int lastTime;
+//    public float slowPercent;
 
-    private float nowTime;
-    private int enemySpeed;
+//    private float nowTime;
+//    private float enemySpeed;
 
-    private void Update()
-    {
-        nowTime += Time.deltaTime;
-        if (lastTime <= nowTime) Destroy(gameObject);
-    }
+//    private void Update()
+//    {
+//        nowTime += Time.deltaTime;
+//        if (lastTime <= nowTime) Destroy(gameObject);
+//    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Enemy"))
-        {
-            EnemyScript enemyScript = collision.GetComponent<EnemyScript>();
-            enemySpeed = enemyScript.enemyData.moveSpeed;
-            enemyScript.enemyData.moveSpeed = Mathf.RoundToInt(enemySpeed * slowPercent);
-        }
-    }
+//    private void OnTriggerEnter2D(Collider2D collision)
+//    {
+//        if(collision.CompareTag("Enemy"))
+//        {
+//            EnemyScript enemyScript = collision.GetComponent<EnemyScript>();
+//            enemySpeed = enemyScript.movespeed;
+//            enemyScript.movespeed = enemySpeed * slowPercent;
+//        }
+//    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-       if(other.CompareTag("Enemy"))
-        {
-            EnemyScript enemyScript = other.GetComponent<EnemyScript>();
-            enemyScript.enemyData.moveSpeed = enemySpeed;
-        }
-    }
-}
+//    private void OnTriggerExit2D(Collider2D other)
+//    {
+//       if(other.CompareTag("Enemy"))
+//        {
+//            EnemyScript enemyScript = other.GetComponent<EnemyScript>();
+//            enemyScript.movespeed = enemySpeed;
+//        }
+//    }
+//}

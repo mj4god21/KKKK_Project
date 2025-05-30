@@ -55,8 +55,8 @@ public class SkillUIManager : MonoBehaviour
 
     public void ShowSkillChoices()
     {
-        Debug.Log("ShowSkillChoides");
-        // 이전 버튼 전부 제거
+        Debug.Log("ShowSkillChoices");
+
         foreach (GameObject btn in currentButtons)
         {
             Destroy(btn);
@@ -78,55 +78,67 @@ public class SkillUIManager : MonoBehaviour
             GameObject newSkillButton = Instantiate(skillList[randIndex], btnTrmList[i]);
             currentButtons.Add(newSkillButton);
 
+            TextUpdate(newSkillButton, randIndex); // ← 여기에 프리팹 인스턴스 전달
+
             Button buttonComponent = newSkillButton.GetComponent<Button>();
             int capturedIndex = randIndex;
-            TextUpdate(randIndex);
             buttonComponent.onClick.AddListener(() => SelectSkill(capturedIndex));
         }
     }
 
-    private void TextUpdate(int index)
+
+    private void TextUpdate(GameObject button, int index)
     {
-        switch(index)
+        Transform titleTrm = button.transform.Find("Title");
+        Transform descTrm = button.transform.Find("Text");
+
+        if (titleTrm == null || descTrm == null)
         {
-            case 0: // 클릭버프
-                skillTitleTexts[index].text = "더 강한 공격";
-                skillDescriptionTexts[index].text = 
-                    SkillData.Instance.clickBuff_descriptions[SkillData.Instance.clickBuff_nowLevel];
-                return;
+            Debug.LogError($"[{index}] 버튼의 텍스트를 찾을 수 없습니다. 경로 확인 필요.");
+            return;
+        }
 
-            case 1: // HP버프
-                skillTitleTexts[index].text = "단단해지기";
-                skillDescriptionTexts[index].text =
-                    SkillData.Instance.hpBuff_descriptions[SkillData.Instance.hpBuff_nowLevel];
-                return;
-            
-            case 2: //오토클릭
-                skillTitleTexts[index].text = "협동 공격";
-                skillDescriptionTexts[index].text =
-                    SkillData.Instance.autoClick_descriptions[SkillData.Instance.autoClick_nowLevel];
-                return;
-            
-            case 3: //슬로우영역
-                skillTitleTexts[index].text = "늪뿌리기";
-                skillDescriptionTexts[index].text =
-                    SkillData.Instance.slowArea_descriptions[SkillData.Instance.slowArea_nowLevel];
-                return;
-            
-            case 4: //경험치 버프
-                skillTitleTexts[index].text = "빠른 성장";
-                skillDescriptionTexts[index].text =
-                    SkillData.Instance.clickBuff_descriptions[SkillData.Instance.expBuff_nowLevel];
-                return;
-            
-            case 5: // 흡혈회복
-                skillTitleTexts[index].text = "흡혈 회복";
-                skillDescriptionTexts[index].text =
-                    SkillData.Instance.clickBuff_descriptions[SkillData.Instance.bloodHeal_nowLevel];
-                return;
+        TextMeshProUGUI title = titleTrm.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI description = descTrm.GetComponent<TextMeshProUGUI>();
 
+        if (title == null || description == null)
+        {
+            Debug.LogError($"[{index}] TextMeshProUGUI 컴포넌트가 없습니다.");
+            return;
+        }
+
+        switch (index)
+        {
+            case 0:
+                title.text = "더 강한 공격";
+                description.text = SkillData.Instance.GetDescription(0);
+                break;
+            case 1:
+                title.text = "단단해지기";
+                description.text = SkillData.Instance.GetDescription(1);
+                break;
+            case 2:
+                title.text = "협동 공격";
+                description.text = SkillData.Instance.GetDescription(2);
+                break;
+            //case 3:
+            //    title.text = "늪뿌리기";
+            //    description.text = SkillData.Instance.GetDescription(3);
+            //    break;
+            case 3:
+                title.text = "빠른 성장";
+                description.text = SkillData.Instance.GetDescription(4);
+                break;
+            case 4:
+                title.text = "흡혈 회복";
+                description.text = SkillData.Instance.GetDescription(5);
+                break;
         }
     }
+
+
+
+
 
     private int GetUniqueRandomIndex()
     {
@@ -160,15 +172,15 @@ public class SkillUIManager : MonoBehaviour
         {
             SkillData.Instance.Skill_AutoClick();
         }
-        else if(skillIndex == 3)
-        {
-            SkillData.Instance.Skill_SlowArea();
-        }
-        else if (skillIndex == 4)
+        //else if(skillIndex == 3)
+        //{
+        //    SkillData.Instance.Skill_SlowArea();
+        //}
+        else if (skillIndex == 3)
         {
             SkillData.Instance.Skill_EXPBuff();
         }
-        else if (skillIndex == 5)
+        else if (skillIndex == 4)
         {
             SkillData.Instance.Skill_BloodHeal();
         }
@@ -181,5 +193,3 @@ public class SkillUIManager : MonoBehaviour
         GameManager.Instance.ResumeGame();
     }
 }
-
-

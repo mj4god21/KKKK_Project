@@ -15,6 +15,6 @@ MonoBehaviour:
   hp: 20
   moveSpeed: 3
   attackRange: 0
-  knockbackForce: 10
+  knockbackForce: 2
   expDropAmount: 5
   expPrefab: {fileID: 8219827729629590562, guid: 64ec3d41ffe04ef4492c9f5aad218968, type: 3}
