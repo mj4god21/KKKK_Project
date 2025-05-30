@@ -3,17 +3,19 @@ using UnityEngine;
 public class SkillData : MonoSingleton<SkillData>
 {
     [Header("기본 데이터")]
-    public int[] nowSkillLevel = { 0, 0, 0, 0, 0, 0 };
+    public int[] nowSkillLevel = { 0, 0, 0, 0, 0 };
     public int attackCount_SlowArea;
     public int attackCount_BloodHeal;
     public string description;
+    public SkillIconViewer skillIconViewer;
     private SpriteRenderer bulletSpriteRenderer;
     private SpriteRenderer playerSpriteRenderer;
 
     [Header("클릭 강화")]
     public Sprite clickBuff_stoneSprite; // 돌멩이 텍스쳐
     public int clickBuff_nowLevel = 0;
-    private Damage clickBuff_playerBulletDamage; 
+    private PlayerAttack playerAttack;
+    private int clickBuff_playerBulletDamage; 
     private int[] clickBuff_damagePercent = { 2, 3, 4, 5, 0 }; // 피해 증가 배율
     public string[] clickBuff_descriptions =
     {
@@ -100,10 +102,11 @@ public class SkillData : MonoSingleton<SkillData>
 
     private void Start()
     {
-        clickBuff_playerBulletDamage = FindObjectOfType<PlayerAttack>().defaultBulletPrefab.GetComponent<Damage>();
+        clickBuff_playerBulletDamage = FindObjectOfType<PlayerAttack>().defaultDamage;
         bulletSpriteRenderer = FindObjectOfType<PlayerAttack>().defaultBulletPrefab.GetComponent<SpriteRenderer>();
         playerSpriteRenderer = FindObjectOfType<PlayerAttack>().GetComponent<SpriteRenderer>();
         playerHP = FindObjectOfType<PlayerScript>().GetComponent<HP>();
+        playerAttack = playerHP.gameObject.GetComponent<PlayerAttack>();
         //slowArea_script = slowArea_Prefab.GetComponent<SlowArea>();
     }
 
@@ -119,14 +122,17 @@ public class SkillData : MonoSingleton<SkillData>
 
     public void Skill_ClickBuff()
     {
-        float nowDamage = clickBuff_playerBulletDamage.damage;
+        float startDamage = 1;
         
-        clickBuff_playerBulletDamage.damage += nowDamage * clickBuff_damagePercent[clickBuff_nowLevel];
-
+        playerAttack.defaultDamage += Mathf.RoundToInt(startDamage * clickBuff_damagePercent[clickBuff_nowLevel]);
+        
         if(clickBuff_nowLevel == 0) // 첫 강화 (=> 레벨 1이 될 때)
         {
             bulletSpriteRenderer.sprite = clickBuff_stoneSprite;
         }
+
+        skillIconViewer.SkillIconUIUpdate(0);
+
         clickBuff_nowLevel++; // 레벨 증가 부분!
         nowSkillLevel[0]++;
     }
@@ -146,6 +152,8 @@ public class SkillData : MonoSingleton<SkillData>
             item.nowAttackSpeed = autoClick_sec[autoClick_nowLevel];
         }
 
+        skillIconViewer.SkillIconUIUpdate(2);
+
         autoClick_nowLevel++;
         nowSkillLevel[1]++;
     }
@@ -156,33 +164,39 @@ public class SkillData : MonoSingleton<SkillData>
         playerHP.maxHp += playerHP.maxHp * hpBuff_percent[hpBuff_nowLevel];
         playerHP.hp += playerHP.hp * hpBuff_percent[hpBuff_nowLevel];
 
+        skillIconViewer.SkillIconUIUpdate(1);
+
         hpBuff_nowLevel++;
         nowSkillLevel[2]++;
     }
 
-    public void Skill_SlowArea()
-    {
-        //slowArea_script.slowPercent += slowArea_script.slowPercent * slowArea_slowPercent[slowArea_nowLevel];
-        //slowArea_script.lastTime = slowArea_lastTime[slowArea_nowLevel];
+    //public void Skill_SlowArea()
+    //{
+    //    //slowArea_script.slowPercent += slowArea_script.slowPercent * slowArea_slowPercent[slowArea_nowLevel];
+    //    //slowArea_script.lastTime = slowArea_lastTime[slowArea_nowLevel];
 
-        slowArea_nowLevel++;
-        nowSkillLevel[3]++;
-    }
+    //    slowArea_nowLevel++;
+    //    nowSkillLevel[3]++;
+    //}
 
     public void Skill_EXPBuff()
     {
         GameManager.Instance.expBuffAmount = expBuff_range[expBuff_nowLevel];
 
+        skillIconViewer.SkillIconUIUpdate(3);
+
         expBuff_nowLevel++;
-        nowSkillLevel[4]++;
+        nowSkillLevel[3]++;
     }
 
     public void Skill_BloodHeal()
     {
         attackCount_BloodHeal = bloodHeal_attackCount[bloodHeal_nowLevel];
 
+        skillIconViewer.SkillIconUIUpdate(4);
+
         bloodHeal_nowLevel++;
-        nowSkillLevel[5]++;
+        nowSkillLevel[4]++;
     }
 
     public void Skill_BloodHeal_Invoke()
@@ -190,7 +204,7 @@ public class SkillData : MonoSingleton<SkillData>
         int rand = Random.Range(0, 100);
         if (rand >= bloodHeal_percent[bloodHeal_nowLevel]) // 발동 성공
         {
-            playerHP.hp += clickBuff_playerBulletDamage.damage * bloodHeal_healPercent[bloodHeal_nowLevel];
+            playerHP.hp += playerAttack.defaultDamage * bloodHeal_healPercent[bloodHeal_nowLevel];
         }
         else // 발동 실패
         {
@@ -205,9 +219,9 @@ public class SkillData : MonoSingleton<SkillData>
             case 0: return clickBuff_descriptions[clickBuff_nowLevel]; // 더 강한 공격
             case 1: return hpBuff_descriptions[autoClick_nowLevel]; // 단단해지기
             case 2: return autoClick_descriptions[hpBuff_nowLevel]; // 협동 공격
-            case 3: return slowArea_descriptions[slowArea_nowLevel]; // 늪뿌리기
-            case 4: return expBuff_descriptions[expBuff_nowLevel]; // 빠른 성장
-            case 5: return bloodHeal_descriptions[bloodHeal_nowLevel]; // 흡혈 회복
+            //case 3: return slowArea_descriptions[slowArea_nowLevel]; // 늪뿌리기
+            case 3: return expBuff_descriptions[expBuff_nowLevel]; // 빠른 성장
+            case 4: return bloodHeal_descriptions[bloodHeal_nowLevel]; // 흡혈 회복
             default: return "설명 없음";
         }
     }

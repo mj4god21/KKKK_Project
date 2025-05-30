@@ -78,8 +78,20 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
                 
                 Vector2 spawnPos = GetRandomSpawnPosition();
                 GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-                
-                
+
+                Vector3 dir = Vector3.zero - enemy.transform.position;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                enemy.transform.rotation = Quaternion.Euler(0, 0, angle + 180f); // Sprite가 위쪽 기준이라면
+
+                SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    sr.flipY = dir.x > 0; // 왼쪽에서 오면 좌우 반전
+                }
+
+
+
+
                 if (enemy != null)
                 {
                     aliveEnemies++;

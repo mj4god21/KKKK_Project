@@ -127,11 +127,11 @@ public class SkillUIManager : MonoBehaviour
             //    break;
             case 3:
                 title.text = "빠른 성장";
-                description.text = SkillData.Instance.GetDescription(4);
+                description.text = SkillData.Instance.GetDescription(3);
                 break;
             case 4:
                 title.text = "흡혈 회복";
-                description.text = SkillData.Instance.GetDescription(5);
+                description.text = SkillData.Instance.GetDescription(4);
                 break;
         }
     }
