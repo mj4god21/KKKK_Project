@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
     public float fireDuration;
     public bool canFire = true;
     public GameObject defaultBulletPrefab;
+    public int defaultDamage = 1;
 
     private PlayerScript player;
 
@@ -42,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
 
         canFire = false;
         GameObject bullet = Instantiate(defaultBulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, transform);
+        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, transform, defaultDamage);
     }
 
     public void SlowAreaSummon()

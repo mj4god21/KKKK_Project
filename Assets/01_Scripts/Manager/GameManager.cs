@@ -19,7 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void GetExp(int expAmount)
     {
-        float expAmountF = expAmount * expBuffAmount;
+        float expAmountF = expAmount + expAmount * expBuffAmount;
 
         Exp += Mathf.RoundToInt(expAmountF);
         if(Exp >= maxExp)

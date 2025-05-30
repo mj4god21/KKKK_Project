@@ -20,8 +20,9 @@ public class BulletScript : MonoBehaviour
         playerAttack = FindObjectOfType<PlayerAttack>();
     }
 
-    public void Fire(Vector3 targetPos, Transform attackTransform)
+    public void Fire(Vector3 targetPos, Transform attackTransform, int damageAmount)
     {
+        damage.damage = damageAmount;
         playerPos = attackTransform;
         Vector2 dir = (targetPos - transform.position).normalized;
         rigid.linearVelocity = dir * fireSpeed;
