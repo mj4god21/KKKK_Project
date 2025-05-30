@@ -3,6 +3,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public float fireSpeed;
+    public GameObject enemyHitFX;
 
     [HideInInspector] public string key = "Bullet";
     [HideInInspector] public Damage damage;
@@ -33,6 +34,8 @@ public class BulletScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Instantiate(enemyHitFX, transform.position, Quaternion.identity);
+         
             HP enemyHP = collision.gameObject.GetComponent<HP>();
             EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
 

@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: ebba3b8893b3b4a4f91a2d4961af08c9, type: 2}
+  movespeed: 0
+  enemyHitFX: {fileID: 4684334925493476318, guid: f247874a230398e49854373df9494561, type: 3}
   canFollow: 0
   canAttack: 0
   isDead: 0
