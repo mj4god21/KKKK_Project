@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
@@ -11,6 +12,8 @@ public class EnemyScript : MonoBehaviour
     private Damage damage;
     private HP hp;
 
+
+    public GameObject enemyHitFX;
     public float movespeed;
     [HideInInspector] public bool canFollow;
     [HideInInspector] public bool canAttack;
@@ -72,14 +75,20 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision");
-        if(collision.gameObject.CompareTag("Player"))
+        Instantiate(enemyHitFX, transform.position, Quaternion.identity);
+        if (collision.gameObject.CompareTag("Player"))
         {
             HP playerHP = collision.gameObject.GetComponent<HP>();
             Debug.Log("Enemy's Attack!");
 
             damage.Enemy_TakeDamage(playerHP, hp.hp);
             playerHP.CastDead();
+            SpriteRenderer playerSprite = collision.gameObject.GetComponent<SpriteRenderer>();
+            playerSprite.material.DOColor(new Color(1, 0.5f, 0.5f), 0.1f).OnComplete(()=>
+            {
+                playerSprite.material.DOColor(new Color(1, 1, 1), 0.1f);
+            });
+
             Destroy(gameObject);
         }
     }
