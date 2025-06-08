@@ -10,6 +10,7 @@ public class HP : MonoBehaviour
 
     public float hp;
     public float maxHp;
+    public int EdeathCount = 0;
 
     public Type objectType;
 
@@ -29,6 +30,7 @@ public class HP : MonoBehaviour
         Debug.Log("EnemyDead");
         EnemySpawnSystem.Instance.aliveEnemies--;
         EnemySpawnSystem.Instance.killedEnemies++;
+        EdeathCount++;
         Destroy(gameObject);
     }
 
