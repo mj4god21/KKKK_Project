@@ -3,17 +3,16 @@ using System.Collections;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public SkillManager skillManager;
     public float fireDuration;
     public bool canFire = true;
     public GameObject defaultBulletPrefab;
+    public int defaultDamage = 1;
 
     private PlayerScript player;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerScript>();
-        skillManager = FindObjectOfType<SkillManager>();
     }
 
     private void Start()
@@ -44,17 +43,12 @@ public class PlayerAttack : MonoBehaviour
 
         canFire = false;
         GameObject bullet = Instantiate(defaultBulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, transform);
-<<<<<<< HEAD
-        bullet.GetComponent<BulletScript>().Initialize(skillManager);
-=======
-
-        if (SkillData.Instance.slowArea_canSummon) SlowAreaSummon();
+        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, transform, defaultDamage);
     }
 
     public void SlowAreaSummon()
     {
         Instantiate(SkillData.Instance.slowArea_Prefab, player.target.transform.position, Quaternion.identity);
->>>>>>> main
+        SkillData.Instance.slowArea_canSummon = false;
     }
 }

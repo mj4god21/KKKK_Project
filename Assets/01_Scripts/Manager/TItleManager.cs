@@ -5,7 +5,7 @@ public class TItleManager : MonoBehaviour
 {
     public void GameStart()
     {
-        SceneManager.LoadScene("KMJ");
+        SceneManager.LoadScene(1);
     }
 
     public void GameExit()

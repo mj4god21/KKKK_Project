@@ -2,13 +2,20 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : MonoSingleton<PlayerScript>
 {
     [HideInInspector] public List<GameObject> enemies = new List<GameObject>();
     [HideInInspector] public GameObject target;
+    [HideInInspector] public Animator animator;
+    
 
     private float scanInterval = 0.2f; // 적 스캔 주기 (초)
     private float scanTimer = 0f;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {

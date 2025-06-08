@@ -3,6 +3,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public float fireSpeed;
+    public GameObject enemyHitFX;
 
     [HideInInspector] public string key = "Bullet";
     [HideInInspector] public Damage damage;
@@ -20,8 +21,9 @@ public class BulletScript : MonoBehaviour
         playerAttack = FindObjectOfType<PlayerAttack>();
     }
 
-    public void Fire(Vector3 targetPos, Transform attackTransform)
+    public void Fire(Vector3 targetPos, Transform attackTransform, int damageAmount)
     {
+        damage.damage = damageAmount;
         playerPos = attackTransform;
         Vector2 dir = (targetPos - transform.position).normalized;
         rigid.linearVelocity = dir * fireSpeed;
@@ -32,6 +34,8 @@ public class BulletScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Instantiate(enemyHitFX, transform.position, Quaternion.identity);
+         
             HP enemyHP = collision.gameObject.GetComponent<HP>();
             EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
 
@@ -41,10 +45,10 @@ public class BulletScript : MonoBehaviour
                 enemyScript.ApplyKnockback(knockcbackDir);
             }
 
-            if (SkillData.Instance.slowArea_canSummon)
-            {
-                playerAttack.SlowAreaSummon();
-            }
+            //if (SkillData.Instance.slowArea_canSummon)
+            //{
+            //    playerAttack.SlowAreaSummon();
+            //}
             if (SkillData.Instance.bloodHeal_canHeal)
             {
                 SkillData.Instance.Skill_BloodHeal_Invoke();

@@ -105,9 +105,9 @@ public class MainUIManager : MonoSingleton<MainUIManager>
                 clearPanel.gameObject.SetActive(false);
                 clearPanel.rectTransform.position = new Vector2(-1920, 0);
                 Time.timeScale = 1f;
+                PlayerHP_FullHeal();
             }))
             .SetUpdate(true);
-        PlayerHP_FullHeal();
         playerHP.hp = playerHP.maxHp;
     }
 
@@ -121,7 +121,7 @@ public class MainUIManager : MonoSingleton<MainUIManager>
         }
         float amount = Mathf.Clamp01(currentEXP / maxEXP);
 
-        Debug.Log($"[EXP] current: {currentEXP}, max: {maxEXP}, amount: {amount}");
+        //Debug.Log($"[EXP] current: {currentEXP}, max: {maxEXP}, amount: {amount}");
 
         playerEXPImage.DOKill();
         playerEXPImage.DOFillAmount(amount, 0.5f).SetEase(Ease.OutCubic);

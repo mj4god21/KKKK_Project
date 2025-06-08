@@ -13,6 +13,7 @@ public class Damage : MonoBehaviour
         }
 
         playerHP.hp -= damage;
+        PlayerScript.Instance.animator.SetTrigger("Attacked");
         MainUIManager.Instance.PlayerHit_UIUpdate(playerHP.hp);
         playerHP.CastDead();
     }
@@ -25,6 +26,8 @@ public class Damage : MonoBehaviour
             Debug.LogError("EnemyHP is null.");
             return;  // enemyHP가 null이면 메서드를 더 이상 실행하지 않음
         }
+
+        Debug.Log($"PlayerDamage: {damage}");
 
         enemyHP.hp -= damage;
         SkillData.Instance.attackCount_BloodHeal++;

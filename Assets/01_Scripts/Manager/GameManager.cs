@@ -7,6 +7,7 @@ public class GameManager : MonoSingleton<GameManager>
     public float Exp = 0;
     public float maxExp = 30;
     public int nowLevel;
+    public float expBuffAmount = 1;
 
     private void Update()
     {
@@ -18,7 +19,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void GetExp(int expAmount)
     {
-        Exp += expAmount;
+        float expAmountF = expAmount + expAmount * expBuffAmount;
+
+        Exp += Mathf.RoundToInt(expAmountF);
         if(Exp >= maxExp)
         {
             nowLevel++;

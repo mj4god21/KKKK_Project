@@ -47,7 +47,7 @@ public class AutoClicker : MonoBehaviour
         }
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, gameObject.transform);
+        bullet.GetComponent<BulletScript>().Fire(player.target.transform.position, gameObject.transform, nowDamage);
     }
 
     private void ResetAutoClicker()
