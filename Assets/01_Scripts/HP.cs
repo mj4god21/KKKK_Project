@@ -39,7 +39,11 @@ public class HP : MonoBehaviour
         EnemySpawnSystem.Instance.killedEnemies++;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         EdeathCount++;
+=======
+        EnemySpawnSystem.Instance.killedEnemyCount++;
+>>>>>>> Stashed changes
 =======
         EnemySpawnSystem.Instance.killedEnemyCount++;
 >>>>>>> Stashed changes
