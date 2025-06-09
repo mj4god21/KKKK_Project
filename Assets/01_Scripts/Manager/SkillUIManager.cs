@@ -8,12 +8,14 @@ public class SkillUIManager : MonoBehaviour
     //public GameObject skillPanel;
     public GameObject[] skillList;
     public Transform[] btnTrmList = new Transform[3]; // ⭐ 반드시 3개로 설정
+    public GameObject checkImage;
 
     private List<int> usedIndices = new List<int>();
     private List<GameObject> currentButtons = new List<GameObject>();
 
     private TextMeshProUGUI[] skillTitleTexts;
     private TextMeshProUGUI[] skillDescriptionTexts;
+    private int nowSelectSkillIndex;
 
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class SkillUIManager : MonoBehaviour
 
     private void Start()
     {
+        checkImage.SetActive(false);
         skillTitleTexts = new TextMeshProUGUI[skillList.Length];
         skillDescriptionTexts = new TextMeshProUGUI[skillList.Length];
 
@@ -82,8 +85,26 @@ public class SkillUIManager : MonoBehaviour
 
             Button buttonComponent = newSkillButton.GetComponent<Button>();
             int capturedIndex = randIndex;
-            buttonComponent.onClick.AddListener(() => SelectSkill(capturedIndex));
+            buttonComponent.onClick.AddListener(() => SelectCheck(capturedIndex));
         }
+    }
+
+    private void SelectCheck(int skillIdx)
+    {
+        nowSelectSkillIndex = skillIdx;
+
+        checkImage.SetActive(true);
+    }
+
+    public void Select_No()
+    {
+        checkImage.SetActive(false);
+    }
+
+    public void Select_Yes()
+    {
+        SelectSkill(nowSelectSkillIndex);
+        checkImage.SetActive(false);
     }
 
 
@@ -164,11 +185,11 @@ public class SkillUIManager : MonoBehaviour
         {
             SkillData.Instance.Skill_ClickBuff();
         }
-        else if(skillIndex == 1)
+        else if (skillIndex == 1)
         {
             SkillData.Instance.Skill_HPBuff();
         }
-        else if(skillIndex == 2)
+        else if (skillIndex == 2)
         {
             SkillData.Instance.Skill_AutoClick();
         }
@@ -186,9 +207,9 @@ public class SkillUIManager : MonoBehaviour
         }
 
         foreach (GameObject button in currentButtons)
-            {
-                Destroy(button);
-            }
+        {
+            Destroy(button);
+        }
         currentButtons.Clear();
         GameManager.Instance.ResumeGame();
     }

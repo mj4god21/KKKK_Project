@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e98a2e3e1a2e3479427aed855419dd, type: 3}
+  m_Name: Chapter1-MesozoicEra
+  m_EditorClassIdentifier: 
+  chapterIdx: 0
+  chapterName: "\uC911\uC0DD\uB300"
+  description: "\uACF5\uB8E1\uACFC \uC6B4\uC11D\uC774 \uAC00\uB4DD\uD55C \uACF3"
+  wave: 99
+  waveTime: 60
+  enemyPrefab:
+  - {fileID: 6160960536640172872, guid: 6a28294178f8e164bb81c2d4d472842c, type: 3}
+  - {fileID: 6160960536640172872, guid: 409aa40ddd0469943b943bf3d2610d7e, type: 3}
+  - {fileID: 6160960536640172872, guid: c9d62adf942c1b1469825c6da918f8fd, type: 3}
+  - {fileID: 6160960536640172872, guid: b4f893342361a8945babe77a729cbe08, type: 3}
+  - {fileID: 6160960536640172872, guid: 13a3064d1f302ea4cb64c8006f7793fc, type: 3}
+  - {fileID: 6160960536640172872, guid: 6a28294178f8e164bb81c2d4d472842c, type: 3}
+  - {fileID: 6160960536640172872, guid: 7d93822fc32408e40b9197f0d4fd889d, type: 3}
+  maxEnemyCount: 30

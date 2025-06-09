@@ -9,10 +9,8 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     [Header("UI")]
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI waveText;
-    public TextMeshProUGUI hpText;
     public Image pausePanel;
     public Image pauseSidePanel;
-    public Image settingPanel;
     public Image clearPanel;
     public Image playerEXPImage; 
     public Image playerHPImage; 
@@ -23,6 +21,18 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     public GameState currentState = GameState.Playing;
 
     private string chapterName;
+
+    private void OnEnable()
+    {
+        timerText = GameObject.Find("Time")?.GetComponent<TextMeshProUGUI>();
+        waveText = GameObject.Find("NowWaveViewer")?.GetComponent<TextMeshProUGUI>();
+        pausePanel = GameObject.Find("PauseUIPanel")?.GetComponent<Image>();
+        pauseSidePanel = GameObject.Find("PauseSidePanel")?.GetComponent<Image>();
+        clearPanel = GameObject.Find("ClearPanel")?.GetComponent<Image>();
+        playerEXPImage = GameObject.Find("PlayerEXPUI")?.GetComponent<Image>();
+        playerHPImage = GameObject.Find("PlayerHPImage")?.GetComponent<Image>();
+        playerHP = GameObject.Find("Player")?.GetComponent<HP>();
+    }
 
     private void Start()
     {
@@ -131,7 +141,6 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     {
         float hp01 = Mathf.Clamp01(value / playerHP.maxHp);
         playerHPImage.DOFillAmount(hp01, 0.25f).SetEase(Ease.OutCubic);
-        hpText.text = value.ToString();
     }
 
     public void PlayerHP_FullHeal()

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ClickerManager : MonoSingleton<ClickerManager>
 {
@@ -12,8 +13,6 @@ public class ClickerManager : MonoSingleton<ClickerManager>
 
     private void Awake()
     {
-        playerAttack = FindObjectOfType<PlayerAttack>();
-
         // Clicker 객체를 초기화하여 이벤트를 연결
         clicker = new Clicker();
         if (clicker != null)
@@ -28,6 +27,8 @@ public class ClickerManager : MonoSingleton<ClickerManager>
 
     private void OnEnable()
     {
+        playerAttack = GameObject.Find("Player")?.GetComponent<PlayerAttack>();
+
         if (clicker != null)
         {
             clicker.Enable();  // 클릭 액션을 활성화

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoSingleton<PlayerScript>
 {
@@ -11,6 +12,11 @@ public class PlayerScript : MonoSingleton<PlayerScript>
 
     private float scanInterval = 0.2f; // 적 스캔 주기 (초)
     private float scanTimer = 0f;
+
+    private void OnEnable()
+    {
+        gameObject.SetActive(true);
+    }
 
     private void Start()
     {

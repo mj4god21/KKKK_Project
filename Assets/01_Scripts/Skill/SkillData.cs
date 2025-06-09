@@ -44,7 +44,7 @@ public class SkillData : MonoSingleton<SkillData>
 
     [Header("체력 강화")]
     public int hpBuff_nowLevel = 0;
-    public Sprite[] hpBuff_sprites; // 레벨업에 따른 스프라이트 변경
+    public Sprite[] hpBuff_sprites = new Sprite[3]; // 레벨업에 따른 스프라이트 변경
     private float[] hpBuff_percent = { 1, 0.5f, 0.5f, 0.5f, 0.5f }; // 얼마나 늘어나게 할건지
     private HP playerHP;
     public string[] hpBuff_descriptions =
@@ -99,6 +99,17 @@ public class SkillData : MonoSingleton<SkillData>
         "공격 횟수가 5회로 감소한다.\n회복 확률이 증가하고,\n회복량이 크게 증가한다."
     };
 
+
+    private void OnEnable()
+    {
+        skillIconViewer = GameObject.Find("SkillUIManager")?.GetComponent<SkillIconViewer>();
+
+        clickBuff_stoneSprite = Resources.Load<Sprite>("Sprites/Player_stone");
+        autoClick_Prefab = Resources.Load<GameObject>("Prefabs/AutoClicker");
+        hpBuff_sprites[0] = Resources.Load<Sprite>("Sprites/Player_Strong");
+        hpBuff_sprites[1] = Resources.Load<Sprite>("Sprites/Player_3");
+        hpBuff_sprites[2] = Resources.Load<Sprite>("Sprites/Player_4");
+    }
 
     private void Start()
     {

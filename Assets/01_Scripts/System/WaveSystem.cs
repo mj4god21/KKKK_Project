@@ -13,8 +13,12 @@ public class WaveSystem : MonoSingleton<WaveSystem>
 
     private bool isStart = false;
 
-    private void Start()
+    private void OnEnable()
     {
+        chapterSO[0] = Resources.Load<Chapter>("SO/Chapter1-MesozoicEra");
+
+        nowWave = 1;
+        nowChapter = 0;
         ResetChapter();
         isStart = true;
     }

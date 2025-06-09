@@ -9,6 +9,16 @@ public class GameManager : MonoSingleton<GameManager>
     public int nowLevel;
     public float expBuffAmount = 1;
 
+    private void OnEnable()
+    {
+        skillUIManager = GameObject.Find("SkillUIManager")?.GetComponent<SkillUIManager>();
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.L))
