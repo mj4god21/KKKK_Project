@@ -20,6 +20,12 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
     private GameObject enemyPrefab;
     private List<Vector2> spawnPositions = new List<Vector2>();
 
+    private void OnEnable()
+    {
+        enemyPrefab = Resources.Load<GameObject>("Prefabs/AutoClicker");
+
+    }
+
     private void Awake()
     {
         GenerateSpawnPositions();

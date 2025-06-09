@@ -37,23 +37,9 @@ public class HP : MonoBehaviour
         Debug.Log("EnemyDead");
         EnemySpawnSystem.Instance.aliveEnemies--;
         EnemySpawnSystem.Instance.killedEnemies++;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         EdeathCount++;
-=======
         EnemySpawnSystem.Instance.killedEnemyCount++;
->>>>>>> Stashed changes
-=======
-        EnemySpawnSystem.Instance.killedEnemyCount++;
->>>>>>> Stashed changes
-=======
-        EnemySpawnSystem.Instance.killedEnemyCount++;
->>>>>>> Stashed changes
-=======
-        EnemySpawnSystem.Instance.killedEnemyCount++;
->>>>>>> Stashed changes
+
         Destroy(gameObject);
     }
 
