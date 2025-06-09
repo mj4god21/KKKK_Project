@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 public class EndUIManager : MonoBehaviour
 {
     public WaveSystem waveSystem;
     public HP hp;
     public GameManager gameManager;
+=======
+public class EndUIManager : MonoSingleton<EndUIManager>
+{
+    public GameObject endPanel;
+>>>>>>> Stashed changes
 =======
 public class EndUIManager : MonoSingleton<EndUIManager>
 {
@@ -32,6 +38,7 @@ public class EndUIManager : MonoSingleton<EndUIManager>
     public TextMeshProUGUI level;
     public TextMeshProUGUI skills;
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -69,6 +76,8 @@ public class EndUIManager : MonoSingleton<EndUIManager>
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     private string[] skillTexts = { "클릭 강화", "오토 클릭", "체력 강화", "경험치 증가", "흡혈회복" };
 
     private void OnEnable()
@@ -98,6 +107,9 @@ public class EndUIManager : MonoSingleton<EndUIManager>
         level.text = $"레벨 : {GameManager.Instance.nowLevel}";
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -126,6 +138,11 @@ public class EndUIManager : MonoSingleton<EndUIManager>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        PlayerScript.Instance.gameObject.SetActive(true);
+        endPanel.SetActive(false);
+>>>>>>> Stashed changes
 =======
         PlayerScript.Instance.gameObject.SetActive(true);
         endPanel.SetActive(false);
@@ -146,6 +163,10 @@ public class EndUIManager : MonoSingleton<EndUIManager>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        endPanel.SetActive(false);
+>>>>>>> Stashed changes
 =======
         endPanel.SetActive(false);
 >>>>>>> Stashed changes
