@@ -21,18 +21,19 @@ public class EndUIManager : MonoSingleton<EndUIManager>
 
     private string[] skillTexts = { "클릭 강화", "오토 클릭", "체력 강화", "경험치 증가", "흡혈회복" };
 
-    private void OnEnable()
-    {
-        waveSystem = GameObject.Find("WaveSystem")?.GetComponent<WaveSystem>();
-        hp = GameObject.Find("Player")?.GetComponent<HP>();
-        gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
-        endPanel = transform.GetChild(0).gameObject;
-        skillData = GameObject.Find("SkillData")?.GetComponent<SkillData>();
-        wave = GameObject.Find("Wave")?.GetComponent<TextMeshProUGUI>();
-        kills = GameObject.Find("Kills")?.GetComponent<TextMeshProUGUI>();
-        level = GameObject.Find("Level")?.GetComponent<TextMeshProUGUI>();
-        skills = GameObject.Find("Skills")?.GetComponent<TextMeshProUGUI>();
-    }
+    //private void OnEnable()
+    //{
+    //    waveSystem = GameObject.Find("WaveSystem")?.GetComponent<WaveSystem>();
+    //    hp = GameObject.Find("Player")?.GetComponent<HP>();
+    //    gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
+    //    endPanel = transform.GetChild(0).gameObject;
+    //    skillData = GameObject.Find("SkillData")?.GetComponent<SkillData>();
+
+    //    wave    = GameObject.Find("Wave")?.GetComponent<TextMeshProUGUI>();
+    //    kills   = GameObject.Find("Kills")?.GetComponent<TextMeshProUGUI>();
+    //    level   = GameObject.Find("Level")?.GetComponent<TextMeshProUGUI>();
+    //    skills  = GameObject.Find("Skills")?.GetComponent<TextMeshProUGUI>();
+    //}
 
     private void Start()
     {
@@ -43,13 +44,6 @@ public class EndUIManager : MonoSingleton<EndUIManager>
     public void ResultUIOn()
     {
         UpdateText();
-    }
-
-    private void UpdateCount()
-    {
-        waveCnt = waveSystem.nowWave;
-        killCnt = hp.EdeathCount;
-        levelCnt = gameManager.nowLevel;
     }
 
     private void UpdateText()

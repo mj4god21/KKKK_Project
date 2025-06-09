@@ -22,17 +22,17 @@ public class MainUIManager : MonoSingleton<MainUIManager>
 
     private string chapterName;
 
-    private void OnEnable()
-    {
-        timerText = GameObject.Find("Time")?.GetComponent<TextMeshProUGUI>();
-        waveText = GameObject.Find("NowWaveViewer")?.GetComponent<TextMeshProUGUI>();
-        pausePanel = GameObject.Find("PauseUIPanel")?.GetComponent<Image>();
-        pauseSidePanel = GameObject.Find("PauseSidePanel")?.GetComponent<Image>();
-        clearPanel = GameObject.Find("ClearPanel")?.GetComponent<Image>();
-        playerEXPImage = GameObject.Find("PlayerEXPUI")?.GetComponent<Image>();
-        playerHPImage = GameObject.Find("PlayerHPImage")?.GetComponent<Image>();
-        playerHP = GameObject.Find("Player")?.GetComponent<HP>();
-    }
+    //private void Awake()
+    //{
+    //    timerText = GameObject.Find("Time")?.GetComponent<TextMeshProUGUI>();
+    //    waveText = GameObject.Find("NowWaveViewer")?.GetComponent<TextMeshProUGUI>();
+    //    pausePanel = GameObject.Find("PauseUIPanel")?.GetComponent<Image>();
+    //    pauseSidePanel = GameObject.Find("PauseSidePanel")?.GetComponent<Image>();
+    //    clearPanel = GameObject.Find("ClearPanel")?.GetComponent<Image>();
+    //    playerEXPImage = GameObject.Find("PlayerEXPUI")?.GetComponent<Image>();
+    //    playerHPImage = GameObject.Find("PlayerHPImage")?.GetComponent<Image>();
+    //    playerHP = GameObject.Find("Player")?.GetComponent<HP>();
+    //}
 
     private void Start()
     {
@@ -73,12 +73,12 @@ public class MainUIManager : MonoSingleton<MainUIManager>
     public void PauseGameButtonAction()
     {
         currentState = GameState.Paused;
-        Time.timeScale = 0f;
 
         pausePanel.gameObject.SetActive(true);
         pauseSidePanel.gameObject.SetActive(true);
         pausePanel.DOFade(0.75f, 0.25f).SetUpdate(true);
         pauseSidePanel.rectTransform.DOAnchorPosX(0, 0.25f).SetUpdate(true);
+        Time.timeScale = 0f;
     }
 
     public void SettingPanelOn()
