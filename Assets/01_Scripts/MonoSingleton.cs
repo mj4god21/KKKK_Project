@@ -10,22 +10,25 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            if (instance == null)
-                instance = FindObjectOfType<T>();
-            return instance;
-        }
-    }
+            if (isShuttingDown) return null;
 
-    protected virtual void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this as T;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
+            lock (_lock)
+            {
+                if(instance == null)
+                {
+                    instance = FindObjectOfType<T>();
+                    
+                    if(instance == null)
+                    {
+                        GameObject singletonObj = new GameObject(typeof(T).Name);
+                        instance = singletonObj.AddComponent<T>();
+                    }
+
+                    DontDestroyOnLoad(instance.gameObject);
+                }
+
+                return instance;
+            }
         }
     }
 

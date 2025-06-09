@@ -67,6 +67,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC6E8\uC774\uBE0C : 0"
   m_isRightToLeft: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -89,6 +90,10 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
 >>>>>>> Stashed changes
+=======
+  m_fontAsset: {fileID: 11400000, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+  m_sharedMaterial: {fileID: -4128733859471334856, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+>>>>>>> parent of 7067159 (wffwewd)
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -216,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -233,12 +239,16 @@ MonoBehaviour:
 =======
   m_Color: {r: 0.78616345, g: 0.78616345, b: 0.78616345, a: 1}
 >>>>>>> Stashed changes
+=======
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> parent of 7067159 (wffwewd)
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -256,6 +266,9 @@ MonoBehaviour:
 =======
   m_Sprite: {fileID: -3191368733488703781, guid: ff91d894ea5c06c4a939f06238708ef0, type: 3}
 >>>>>>> Stashed changes
+=======
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+>>>>>>> parent of 7067159 (wffwewd)
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -395,14 +408,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 7067159 (wffwewd)
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> Stashed changes
@@ -424,6 +441,8 @@ MonoBehaviour:
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 7067159 (wffwewd)
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -515,6 +534,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD0C0\uC774\uD2C0 \uD654\uBA74\uC73C\uB85C"
   m_isRightToLeft: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -537,6 +557,10 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
 >>>>>>> Stashed changes
+=======
+  m_fontAsset: {fileID: 11400000, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+  m_sharedMaterial: {fileID: -4128733859471334856, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+>>>>>>> parent of 7067159 (wffwewd)
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -723,6 +747,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC2A4\uD0AC : 0"
   m_isRightToLeft: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -745,6 +770,10 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
 >>>>>>> Stashed changes
+=======
+  m_fontAsset: {fileID: 11400000, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+  m_sharedMaterial: {fileID: -4128733859471334856, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+>>>>>>> parent of 7067159 (wffwewd)
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -879,6 +908,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB2E4\uC2DC \uC2DC\uC791"
   m_isRightToLeft: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -901,11 +931,16 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
 >>>>>>> Stashed changes
+=======
+  m_fontAsset: {fileID: 11400000, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+  m_sharedMaterial: {fileID: -4128733859471334856, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+>>>>>>> parent of 7067159 (wffwewd)
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -928,6 +963,10 @@ MonoBehaviour:
     rgba: 4278201151
   m_fontColor: {r: 0.24528301, g: 0.16674617, b: 0, a: 1}
 >>>>>>> Stashed changes
+=======
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+>>>>>>> parent of 7067159 (wffwewd)
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1055,6 +1094,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB808\uBCA8 : 0"
   m_isRightToLeft: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1077,6 +1117,10 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
 >>>>>>> Stashed changes
+=======
+  m_fontAsset: {fileID: 11400000, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+  m_sharedMaterial: {fileID: -4128733859471334856, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+>>>>>>> parent of 7067159 (wffwewd)
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1179,6 +1223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1201,6 +1246,10 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 15.140289}
   m_SizeDelta: {x: 400, y: 93.7194}
 >>>>>>> Stashed changes
+=======
+  m_AnchoredPosition: {x: 0, y: -38}
+  m_SizeDelta: {x: 400, y: 200}
+>>>>>>> parent of 7067159 (wffwewd)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5105122830592420703
 CanvasRenderer:
@@ -1223,6 +1272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1240,12 +1290,16 @@ MonoBehaviour:
 =======
   m_Color: {r: 1, g: 0.9584214, b: 0.58805025, a: 1}
 >>>>>>> Stashed changes
+=======
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> parent of 7067159 (wffwewd)
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1268,6 +1322,10 @@ MonoBehaviour:
   m_Sprite: {fileID: -3191368733488703781, guid: ff91d894ea5c06c4a939f06238708ef0, type: 3}
   m_Type: 1
 >>>>>>> Stashed changes
+=======
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+>>>>>>> parent of 7067159 (wffwewd)
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1345,6 +1403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1367,6 +1426,10 @@ MonoBehaviour:
   m_Sprite: {fileID: -3191368733488703781, guid: ff91d894ea5c06c4a939f06238708ef0, type: 3}
   m_Type: 1
 >>>>>>> Stashed changes
+=======
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+>>>>>>> parent of 7067159 (wffwewd)
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1435,6 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1452,12 +1516,16 @@ MonoBehaviour:
 =======
   m_Color: {r: 1, g: 0.9670416, b: 0.65723264, a: 1}
 >>>>>>> Stashed changes
+=======
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> parent of 7067159 (wffwewd)
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1475,6 +1543,9 @@ MonoBehaviour:
 =======
   m_Sprite: {fileID: -3191368733488703781, guid: ff91d894ea5c06c4a939f06238708ef0, type: 3}
 >>>>>>> Stashed changes
+=======
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+>>>>>>> parent of 7067159 (wffwewd)
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1574,6 +1645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1596,6 +1668,10 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
 >>>>>>> Stashed changes
+=======
+  m_AnchoredPosition: {x: 0, y: 33}
+  m_SizeDelta: {x: -200, y: -150}
+>>>>>>> parent of 7067159 (wffwewd)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2419292563060994853
 CanvasRenderer:
@@ -1627,6 +1703,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uAC8C\uC784 \uACB0\uACFC"
   m_isRightToLeft: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1649,11 +1726,16 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
 >>>>>>> Stashed changes
+=======
+  m_fontAsset: {fileID: 11400000, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+  m_sharedMaterial: {fileID: -4128733859471334856, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+>>>>>>> parent of 7067159 (wffwewd)
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1676,6 +1758,10 @@ MonoBehaviour:
     rgba: 4278209885
   m_fontColor: {r: 0.36477977, g: 0.3020735, b: 0, a: 1}
 >>>>>>> Stashed changes
+=======
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+>>>>>>> parent of 7067159 (wffwewd)
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1842,6 +1928,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uCC98\uCE58\uD55C \uC218 : 0"
   m_isRightToLeft: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1864,6 +1951,10 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: d87444105e79da5469e53b4653b68d33, type: 2}
   m_sharedMaterial: {fileID: 4424075159098022812, guid: d87444105e79da5469e53b4653b68d33, type: 2}
 >>>>>>> Stashed changes
+=======
+  m_fontAsset: {fileID: 11400000, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+  m_sharedMaterial: {fileID: -4128733859471334856, guid: f56388119a83a1243bf5408fe05528c0, type: 2}
+>>>>>>> parent of 7067159 (wffwewd)
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -14,13 +14,6 @@ public class HP : MonoBehaviour
 
     public Type objectType;
 
-    private EndUIManager endUIManager;
-
-    private void Start()
-    {
-        if (objectType == Type.Player) endUIManager = GameObject.Find("EndManager")?.GetComponent<EndUIManager>();
-    }
-
     public void CastDead()
     {
         if (hp <= 0)
@@ -37,6 +30,7 @@ public class HP : MonoBehaviour
         Debug.Log("EnemyDead");
         EnemySpawnSystem.Instance.aliveEnemies--;
         EnemySpawnSystem.Instance.killedEnemies++;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -54,19 +48,15 @@ public class HP : MonoBehaviour
 =======
         EnemySpawnSystem.Instance.killedEnemyCount++;
 >>>>>>> Stashed changes
+=======
+        EdeathCount++;
+>>>>>>> parent of 7067159 (wffwewd)
         Destroy(gameObject);
     }
 
     private void PlayerDead()
     {
         Debug.Log("PlayerDead");
-
-        EndUIManager.Instance.endPanel.SetActive(true);
-        EndUIManager.Instance.ResultUIOn();
-
-        EnemySpawnSystem.Instance.isGameOver = true;
-        Time.timeScale = 0;
-
         gameObject.SetActive(false);
     }
 }

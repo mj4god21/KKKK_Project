@@ -2,15 +2,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 7067159 (wffwewd)
 public class EndUIManager : MonoBehaviour
 {
     public WaveSystem waveSystem;
     public HP hp;
     public GameManager gameManager;
+<<<<<<< HEAD
 =======
 public class EndUIManager : MonoSingleton<EndUIManager>
 {
@@ -31,6 +35,8 @@ public class EndUIManager : MonoSingleton<EndUIManager>
 {
     public GameObject endPanel;
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 7067159 (wffwewd)
     private SkillData skillData;
 
     public TextMeshProUGUI wave;
@@ -38,10 +44,13 @@ public class EndUIManager : MonoSingleton<EndUIManager>
     public TextMeshProUGUI level;
     public TextMeshProUGUI skills;
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 7067159 (wffwewd)
     private int waveCnt = 0;
     private int levelCnt = 0;
     private int killCnt = 0;
@@ -71,6 +80,7 @@ public class EndUIManager : MonoSingleton<EndUIManager>
         wave.text = $"웨이브 : {waveCnt}";
         kills.text = $"처치한 수 : {killCnt}";
         level.text = $"레벨 : {levelCnt}";
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> Stashed changes
@@ -115,6 +125,8 @@ public class EndUIManager : MonoSingleton<EndUIManager>
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 7067159 (wffwewd)
         skills.text = "스킬 : ";
 
         for (int i = 0; i < skillData.nowSkillLevel.Length; i++)
@@ -135,6 +147,7 @@ public class EndUIManager : MonoSingleton<EndUIManager>
     public void ReStart()
     {
         SceneManager.LoadScene("KMJ");
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -155,11 +168,14 @@ public class EndUIManager : MonoSingleton<EndUIManager>
         PlayerScript.Instance.gameObject.SetActive(true);
         endPanel.SetActive(false);
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 7067159 (wffwewd)
     }
 
     public void GoTitle()
     {
         SceneManager.LoadScene("TitleScene");
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -176,5 +192,7 @@ public class EndUIManager : MonoSingleton<EndUIManager>
 =======
         endPanel.SetActive(false);
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 7067159 (wffwewd)
     }
 }

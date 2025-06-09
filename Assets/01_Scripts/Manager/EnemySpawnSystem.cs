@@ -8,17 +8,15 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
     [HideInInspector] public int aliveEnemies = 0;
     [HideInInspector] public int killedEnemies = 0;
 
-    [HideInInspector] public int killedEnemyCount = 0;
-
     public float spawnTime = 2f;
     public float spawnOffset = 1f;
     public int spawnPointCount = 20;
     public int spawnedEnemies = 0;
     public bool isEnemyAllSpawned = false;
-    public bool isGameOver = false;
 
     private GameObject enemyPrefab;
     private List<Vector2> spawnPositions = new List<Vector2>();
+    private bool isGameOver;
 
     private void Awake()
     {
@@ -27,11 +25,6 @@ public class EnemySpawnSystem : MonoSingleton<EnemySpawnSystem>
 
     private void Start()
     {
-        aliveEnemies = 0;
-        killedEnemies = 0;
-        killedEnemyCount = 0;
-
-        isGameOver = false;
         StartCoroutine(SummonEnemyRoutine());
     }
 
