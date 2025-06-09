@@ -11,6 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnEnable()
     {
+        Time.timeScale = 1f;
         skillUIManager = GameObject.Find("SkillUIManager")?.GetComponent<SkillUIManager>();
     }
 

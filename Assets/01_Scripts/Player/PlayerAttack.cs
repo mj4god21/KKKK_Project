@@ -8,11 +8,13 @@ public class PlayerAttack : MonoBehaviour
     public GameObject defaultBulletPrefab;
     public int defaultDamage = 1;
 
+    private AudioSource attackAudio;
     private PlayerScript player;
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerScript>();
+        attackAudio = GetComponent<AudioSource>();
+        player = GetComponent<PlayerScript>();
     }
 
     private void Start()

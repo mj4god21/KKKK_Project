@@ -66,21 +66,21 @@ public class WaveSystem : MonoSingleton<WaveSystem>
         switch(chapterSO[nowChapter].chapterIdx) // 다음 챕터의 인덱스에 따라서 최대 에너미 수를 조정하는 부분
         {
             case 0:
-                maxEnemyCount = Mathf.CeilToInt((waveF / 2) * 10 + 5);
+                maxEnemyCount = Mathf.CeilToInt((waveF / 2) * 10 + 10);
                 break;
 
             case 1:
-                maxEnemyCount = Mathf.CeilToInt((nowWave / 3) * 10);
+                maxEnemyCount = Mathf.CeilToInt((nowWave / 3) * 10 + 10);
                 break;
 
             case 2:
-                maxEnemyCount = Mathf.CeilToInt((nowWave / 3) * 10);
+                maxEnemyCount = Mathf.CeilToInt((nowWave / 3) * 10 + 10);
                 break;
             case 3:
-                maxEnemyCount = Mathf.CeilToInt((nowWave / 2) * 10);
+                maxEnemyCount = Mathf.CeilToInt((nowWave / 2) * 10 + 10);
                 break;
             case 4:
-                maxEnemyCount = Mathf.CeilToInt((nowWave / 2) * 10);
+                maxEnemyCount = Mathf.CeilToInt((nowWave / 2) * 10 + 10);
                 break;
             default:
                 Debug.LogWarning("Chapter Index was Overflow!!!");
