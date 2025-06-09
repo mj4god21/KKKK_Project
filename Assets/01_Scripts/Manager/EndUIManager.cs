@@ -3,11 +3,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 public class EndUIManager : MonoBehaviour
 {
     public WaveSystem waveSystem;
     public HP hp;
     public GameManager gameManager;
+=======
+public class EndUIManager : MonoSingleton<EndUIManager>
+{
+    public GameObject endPanel;
+>>>>>>> Stashed changes
 =======
 public class EndUIManager : MonoSingleton<EndUIManager>
 {
@@ -20,6 +26,7 @@ public class EndUIManager : MonoSingleton<EndUIManager>
     public TextMeshProUGUI level;
     public TextMeshProUGUI skills;
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     private int waveCnt = 0;
     private int levelCnt = 0;
@@ -51,6 +58,8 @@ public class EndUIManager : MonoSingleton<EndUIManager>
         kills.text = $"처치한 수 : {killCnt}";
         level.text = $"레벨 : {levelCnt}";
 =======
+=======
+>>>>>>> Stashed changes
     private string[] skillTexts = { "클릭 강화", "오토 클릭", "체력 강화", "경험치 증가", "흡혈회복" };
 
     private void OnEnable()
@@ -78,6 +87,9 @@ public class EndUIManager : MonoSingleton<EndUIManager>
         wave.text = $"생존 웨이브 : {WaveSystem.Instance.nowWave}";
         kills.text = $"적 처치 수 : {EnemySpawnSystem.Instance.killedEnemyCount}";
         level.text = $"레벨 : {GameManager.Instance.nowLevel}";
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         skills.text = "스킬 : ";
 
@@ -100,6 +112,11 @@ public class EndUIManager : MonoSingleton<EndUIManager>
     {
         SceneManager.LoadScene("KMJ");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        PlayerScript.Instance.gameObject.SetActive(true);
+        endPanel.SetActive(false);
+>>>>>>> Stashed changes
 =======
         PlayerScript.Instance.gameObject.SetActive(true);
         endPanel.SetActive(false);
@@ -110,6 +127,10 @@ public class EndUIManager : MonoSingleton<EndUIManager>
     {
         SceneManager.LoadScene("TitleScene");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        endPanel.SetActive(false);
+>>>>>>> Stashed changes
 =======
         endPanel.SetActive(false);
 >>>>>>> Stashed changes
